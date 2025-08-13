@@ -7,25 +7,25 @@ const contactInfo = [
   {
     icon: MapPin,
     title: 'Our Location',
-    details: ['123 Green Valley Street', 'Fresh Market District', 'City, State 12345'],
+    details: ['No 5 Gano close, Yoruba mosque', 'Medical centre gate', 'Abuja, Nigeria'],
     color: 'vegetable-green',
   },
   {
     icon: Phone,
     title: 'Phone Number',
-    details: ['+1 (555) 123-4567', 'WhatsApp Available', 'Call or Text Anytime'],
+    details: ['08032892443', '08149556915', 'WhatsApp Available'],
     color: 'vegetable-orange',
   },
   {
     icon: Mail,
     title: 'Email Address',
-    details: ['info@freshveggies.com', 'orders@freshveggies.com', 'support@freshveggies.com'],
+    details: ['Wadaataa@gmail.com', 'Orders & Inquiries', 'Customer Support'],
     color: 'vegetable-red',
   },
   {
     icon: Clock,
     title: 'Working Hours',
-    details: ['Monday - Friday: 7AM - 8PM', 'Saturday: 8AM - 6PM', 'Sunday: 9AM - 5PM'],
+    details: ['Monday - Friday: 7AM - 7PM', 'Saturday: 8AM - 6PM', 'Sunday: 9AM - 5PM'],
     color: 'vegetable-yellow',
   },
 ];
