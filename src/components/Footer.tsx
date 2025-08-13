@@ -19,7 +19,7 @@ const Footer = () => {
               <div className='p-2 bg-gradient-fresh rounded-lg'>
                 <Leaf className='h-6 w-6 text-white' />
               </div>
-              <span className='text-xl font-bold'>Fresh Veggies</span>
+              <span className='text-xl font-bold'>Wadata Vegetables</span>
             </div>
             <p className='text-gray-300 leading-relaxed'>
               Your trusted partner for fresh, organic vegetables delivered straight from the farm to
@@ -97,18 +97,18 @@ const Footer = () => {
               <div className='flex items-start space-x-3'>
                 <MapPin className='h-5 w-5 text-green-400 mt-0.5' />
                 <div className='text-gray-300 text-sm'>
-                  <p>123 Green Valley Street</p>
-                  <p>Fresh Market District</p>
-                  <p>City, State 12345</p>
+                  <p>No 5 Gano close, Yoruba mosque</p>
+                  <p>Medical centre gate</p>
+                  <p>Abuja, Nigeria</p>
                 </div>
               </div>
               <div className='flex items-center space-x-3'>
                 <Phone className='h-5 w-5 text-green-400' />
-                <span className='text-gray-300 text-sm'>+1 (555) 123-4567</span>
+                <span className='text-gray-300 text-sm'>08032892443 / 08149556915</span>
               </div>
               <div className='flex items-center space-x-3'>
                 <Mail className='h-5 w-5 text-green-400' />
-                <span className='text-gray-300 text-sm'>info@freshveggies.com</span>
+                <span className='text-gray-300 text-sm'>Wadaataa@gmail.com</span>
               </div>
             </div>
           </motion.div>
@@ -123,7 +123,7 @@ const Footer = () => {
           className='border-t border-gray-700 mt-12 pt-8 text-center'>
           <div className='flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0'>
             <p className='text-gray-400 text-sm'>
-              © {currentYear} Fresh Veggies. All rights reserved.
+              © {currentYear} Wadata Vegetables. All rights reserved.
             </p>
             <div className='flex space-x-6 text-sm'>
               <a href='#' className='text-gray-400 hover:text-green-400 transition-colors'>

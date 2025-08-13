@@ -2,30 +2,31 @@ import { motion } from 'framer-motion';
 import { MapPin, Phone, Mail, Clock } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
+import { openWhatsApp } from '@/lib/whatsapp';
 
 const contactInfo = [
   {
     icon: MapPin,
     title: 'Our Location',
-    details: ['123 Green Valley Street', 'Fresh Market District', 'City, State 12345'],
+    details: ['No 5 Gano close, Yoruba mosque', 'Medical centre gate', 'Abuja, Nigeria'],
     color: 'vegetable-green',
   },
   {
     icon: Phone,
     title: 'Phone Number',
-    details: ['+1 (555) 123-4567', 'WhatsApp Available', 'Call or Text Anytime'],
+    details: ['08032892443', '08149556915', 'WhatsApp Available'],
     color: 'vegetable-orange',
   },
   {
     icon: Mail,
     title: 'Email Address',
-    details: ['info@freshveggies.com', 'orders@freshveggies.com', 'support@freshveggies.com'],
+    details: ['Wadaataa@gmail.com', 'Orders & Inquiries', 'Customer Support'],
     color: 'vegetable-red',
   },
   {
     icon: Clock,
     title: 'Working Hours',
-    details: ['Monday - Friday: 7AM - 8PM', 'Saturday: 8AM - 6PM', 'Sunday: 9AM - 5PM'],
+    details: ['Monday - Friday: 7AM - 7PM', 'Saturday: 8AM - 6PM', 'Sunday: 9AM - 5PM'],
     color: 'vegetable-yellow',
   },
 ];
@@ -44,6 +45,12 @@ const Contact = () => {
   const itemVariants = {
     hidden: { opacity: 0, y: 30 },
     visible: { opacity: 1, y: 0 },
+  };
+
+  const handleOrderOnWhatsApp = () => {
+    const message =
+      "Hi! I'm ready to place an order for fresh vegetables. Can you assist me with the ordering process?";
+    openWhatsApp({ message });
   };
 
   return (
@@ -114,6 +121,7 @@ const Contact = () => {
             <Button
               size='lg'
               variant='secondary'
+              onClick={handleOrderOnWhatsApp}
               className='bg-white text-vegetable-green hover:bg-white/90 transition-all duration-300 px-8 py-6 text-lg'>
               <Phone className='h-5 w-5 mr-2' />
               Order on WhatsApp

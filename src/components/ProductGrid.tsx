@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { ShoppingCart, Star } from 'lucide-react';
+import { openWhatsApp, createProductInquiryMessage } from '@/lib/whatsapp';
 import tomatoesImage from '@/assets/tomatoes.jpg';
 import carrotsImage from '@/assets/carrots.jpg';
 import lettuceImage from '@/assets/lettuce.jpg';
@@ -76,6 +77,11 @@ const ProductGrid = () => {
     visible: { opacity: 1, y: 0 },
   };
 
+  const handleOrderNow = (productName: string) => {
+    const message = createProductInquiryMessage(productName);
+    openWhatsApp({ message });
+  };
+
   return (
     <section id='products' className='py-20 bg-muted/30'>
       <div className='container mx-auto px-4'>
@@ -133,6 +139,7 @@ const ProductGrid = () => {
 
                   <Button
                     size='sm'
+                    onClick={() => handleOrderNow(product.name)}
                     className='bg-gradient-fresh hover:shadow-glow transition-all duration-300 w-full'>
                     <ShoppingCart className='h-4 w-4 mr-2' />
                     Order Now

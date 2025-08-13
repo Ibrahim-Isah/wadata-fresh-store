@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { ShoppingCart, Leaf, Star } from 'lucide-react';
 import { useState, useEffect } from 'react';
+import { openWhatsApp } from '@/lib/whatsapp';
 
 import heroImage from '@/assets/hero-vegetables.jpg';
 import carrots from '@/assets/carrots.jpg';
@@ -22,6 +23,18 @@ const Hero = () => {
 
     return () => clearInterval(interval);
   }, []);
+
+  const handleShopNow = () => {
+    const message =
+      "Hi! I'd like to browse your fresh vegetables and place an order. Can you help me?";
+    openWhatsApp({ message });
+  };
+
+  const handleLearnMore = () => {
+    const message =
+      "Hi! I'd like to learn more about your fresh vegetables and services. Can you provide more information?";
+    openWhatsApp({ message });
+  };
 
   return (
     <section
@@ -69,6 +82,7 @@ const Hero = () => {
               className='flex flex-col sm:flex-row gap-4'>
               <Button
                 size='lg'
+                onClick={handleShopNow}
                 className='bg-gradient-fresh hover:shadow-glow transition-all duration-300 text-lg px-8 py-6'>
                 <ShoppingCart className='h-5 w-5 mr-2' />
                 Shop Now
@@ -76,6 +90,7 @@ const Hero = () => {
               <Button
                 variant='outline'
                 size='lg'
+                onClick={handleLearnMore}
                 className='text-lg px-8 py-6 border-vegetable-green text-vegetable-green hover:bg-vegetable-green hover:text-white transition-all duration-300 bg-transparent'>
                 Learn More
               </Button>

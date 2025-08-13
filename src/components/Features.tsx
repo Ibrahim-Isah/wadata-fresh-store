@@ -5,19 +5,19 @@ const features = [
   {
     icon: Truck,
     title: 'Free Delivery',
-    description: 'Free delivery on orders over $30',
+    description: 'Free delivery within Abuja on orders over ₦50,000',
     color: 'vegetable-green',
   },
   {
     icon: Leaf,
-    title: '100% Organic',
-    description: 'Certified organic vegetables',
+    title: '100% Fresh',
+    description: 'Farm-fresh vegetables daily',
     color: 'vegetable-green',
   },
   {
     icon: Clock,
-    title: '24/7 Service',
-    description: 'Round the clock customer service',
+    title: 'Quick Response',
+    description: 'Fast WhatsApp orders and delivery',
     color: 'vegetable-orange',
   },
   {
