@@ -7,6 +7,7 @@ import Contact from '@/components/Contact';
 import WhatsAppButton from '@/components/WhatsAppButton';
 import Footer from '@/components/Footer';
 import TeamSection from '@/components/TeamsSection';
+import CertificationSection from '@/components/CertificationSection';
 
 const Index = () => {
   return (
@@ -16,6 +17,7 @@ const Index = () => {
       <ProductGrid />
       <Features />
       <About />
+      <CertificationSection />
       <TeamSection />
       <Contact />
       <WhatsAppButton />
