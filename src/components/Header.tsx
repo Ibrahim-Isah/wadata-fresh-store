@@ -14,7 +14,7 @@ const Header = () => {
           <div className='p-2 bg-gradient-fresh rounded-lg shadow-fresh'>
             <Leaf className='h-6 w-6 text-white' />
           </div>
-          <span className='text-xl font-bold text-vegetable-green'>Fresh Veggies</span>
+          <span className='text-xl font-bold text-vegetable-green'>Wadata Vegetables</span>
         </motion.div>
 
         <nav className='hidden md:flex items-center space-x-8'>
