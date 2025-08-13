@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { MapPin, Phone, Mail, Clock } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
+import { openWhatsApp } from '@/lib/whatsapp';
 
 const contactInfo = [
   {
@@ -44,6 +45,12 @@ const Contact = () => {
   const itemVariants = {
     hidden: { opacity: 0, y: 30 },
     visible: { opacity: 1, y: 0 },
+  };
+
+  const handleOrderOnWhatsApp = () => {
+    const message =
+      "Hi! I'm ready to place an order for fresh vegetables. Can you assist me with the ordering process?";
+    openWhatsApp({ message });
   };
 
   return (
@@ -114,6 +121,7 @@ const Contact = () => {
             <Button
               size='lg'
               variant='secondary'
+              onClick={handleOrderOnWhatsApp}
               className='bg-white text-vegetable-green hover:bg-white/90 transition-all duration-300 px-8 py-6 text-lg'>
               <Phone className='h-5 w-5 mr-2' />
               Order on WhatsApp
