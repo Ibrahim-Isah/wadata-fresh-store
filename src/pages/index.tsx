@@ -6,15 +6,17 @@ import About from '@/components/About';
 import Contact from '@/components/Contact';
 import WhatsAppButton from '@/components/WhatsAppButton';
 import Footer from '@/components/Footer';
+import TeamSection from '@/components/TeamsSection';
 
 const Index = () => {
   return (
     <div className='min-h-screen'>
       <Header />
       <Hero />
-      <Features />
       <ProductGrid />
+      <Features />
       <About />
+      <TeamSection />
       <Contact />
       <WhatsAppButton />
       <Footer />

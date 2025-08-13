@@ -1,9 +1,28 @@
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { ShoppingCart, Leaf, Star } from 'lucide-react';
+import { useState, useEffect } from 'react';
+
 import heroImage from '@/assets/hero-vegetables.jpg';
+import carrots from '@/assets/carrots.jpg';
+import lettuce from '@/assets/lettuce.jpg';
+import brococoli from '@/assets/broccoli.jpg';
+
+const heroImages = [heroImage, carrots, brococoli, lettuce];
 
 const Hero = () => {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prevIndex) =>
+        prevIndex === heroImages.length - 1 ? 0 : prevIndex + 1
+      );
+    }, 4000); // Change image every 4 seconds
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <section
       id='home'
@@ -57,7 +76,7 @@ const Hero = () => {
               <Button
                 variant='outline'
                 size='lg'
-                className='text-lg px-8 py-6 border-vegetable-green text-vegetable-green hover:bg-vegetable-green hover:text-white transition-all duration-300'>
+                className='text-lg px-8 py-6 border-vegetable-green text-vegetable-green hover:bg-vegetable-green hover:text-white transition-all duration-300 bg-transparent'>
                 Learn More
               </Button>
             </motion.div>
@@ -85,14 +104,31 @@ const Hero = () => {
             className='relative'>
             <motion.div
               animate={{ y: [0, -10, 0] }}
-              transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
+              transition={{ duration: 3, repeat: Number.POSITIVE_INFINITY, ease: 'easeInOut' }}
               className='relative'>
-              <img
-                src={heroImage}
-                alt='Fresh Vegetables'
-                className='w-full h-auto rounded-3xl shadow-2xl'
-              />
-              <div className='absolute inset-0 bg-gradient-to-t from-vegetable-green/20 to-transparent rounded-3xl'></div>
+              <div className='relative w-full h-auto rounded-3xl overflow-hidden'>
+                {heroImages.map((image, index) => (
+                  <motion.img
+                    key={index}
+                    src={image}
+                    alt='Fresh Vegetables'
+                    className='w-full h-auto rounded-3xl shadow-2xl absolute top-0 left-0'
+                    initial={{ opacity: index === 0 ? 1 : 0 }}
+                    animate={{
+                      opacity: index === currentImageIndex ? 1 : 0,
+                      zIndex: index === currentImageIndex ? 2 : 1,
+                    }}
+                    transition={{ duration: 1.2, ease: 'easeInOut' }}
+                  />
+                ))}
+                {/* Spacer to maintain container height */}
+                <img
+                  src={heroImages[0] || '/placeholder.svg'}
+                  alt=''
+                  className='w-full h-auto rounded-3xl opacity-0'
+                />
+                <div className='absolute inset-0 bg-gradient-to-t from-vegetable-green/20 to-transparent rounded-3xl z-10'></div>
+              </div>
             </motion.div>
 
             <motion.div
@@ -102,9 +138,27 @@ const Hero = () => {
               className='absolute -top-4 -right-4 bg-vegetable-orange text-white p-4 rounded-full shadow-warm'>
               <motion.div
                 animate={{ rotate: 360 }}
-                transition={{ duration: 10, repeat: Infinity, ease: 'linear' }}>
+                transition={{ duration: 10, repeat: Number.POSITIVE_INFINITY, ease: 'linear' }}>
                 <Leaf className='h-8 w-8' />
               </motion.div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 1.4 }}
+              className='absolute -bottom-6 left-1/2 transform -translate-x-1/2 flex space-x-2'>
+              {heroImages.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentImageIndex(index)}
+                  className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                    index === currentImageIndex
+                      ? 'bg-vegetable-green scale-125'
+                      : 'bg-vegetable-green/30 hover:bg-vegetable-green/60'
+                  }`}
+                />
+              ))}
             </motion.div>
           </motion.div>
         </div>

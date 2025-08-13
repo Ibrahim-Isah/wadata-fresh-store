@@ -13,7 +13,6 @@ const products = [
   {
     id: 1,
     name: 'Fresh Tomatoes',
-    price: '$3.99/kg',
     rating: 4.8,
     image: tomatoesImage,
     description: 'Juicy red tomatoes',
@@ -22,7 +21,6 @@ const products = [
   {
     id: 2,
     name: 'Organic Carrots',
-    price: '$2.49/kg',
     rating: 4.9,
     image: carrotsImage,
     description: 'Sweet orange carrots',
@@ -31,7 +29,6 @@ const products = [
   {
     id: 3,
     name: 'Green Lettuce',
-    price: '$1.99/head',
     rating: 4.7,
     image: lettuceImage,
     description: 'Crispy fresh lettuce',
@@ -40,7 +37,6 @@ const products = [
   {
     id: 4,
     name: 'Bell Peppers',
-    price: '$4.99/kg',
     rating: 4.6,
     image: peppersImage,
     description: 'Colorful bell peppers',
@@ -49,7 +45,6 @@ const products = [
   {
     id: 5,
     name: 'Fresh Broccoli',
-    price: '$3.49/kg',
     rating: 4.8,
     image: broccoliImage,
     description: 'Nutritious green broccoli',
@@ -58,7 +53,6 @@ const products = [
   {
     id: 6,
     name: 'White Onions',
-    price: '$1.79/kg',
     rating: 4.5,
     image: onionsImage,
     description: 'Fresh white onions',
@@ -106,7 +100,7 @@ const ProductGrid = () => {
           whileInView='visible'
           viewport={{ once: true }}
           className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
-          {products.map((product, index) => (
+          {products.map((product) => (
             <motion.div
               key={product.id}
               variants={itemVariants}
@@ -137,15 +131,12 @@ const ProductGrid = () => {
 
                   <p className='text-muted-foreground mb-4'>{product.description}</p>
 
-                  <div className='flex items-center justify-between'>
-                    <span className='text-2xl font-bold text-vegetable-green'>{product.price}</span>
-                    <Button
-                      size='sm'
-                      className='bg-gradient-fresh hover:shadow-glow transition-all duration-300'>
-                      <ShoppingCart className='h-4 w-4 mr-2' />
-                      Add to Cart
-                    </Button>
-                  </div>
+                  <Button
+                    size='sm'
+                    className='bg-gradient-fresh hover:shadow-glow transition-all duration-300 w-full'>
+                    <ShoppingCart className='h-4 w-4 mr-2' />
+                    Order Now
+                  </Button>
                 </CardContent>
               </Card>
             </motion.div>
