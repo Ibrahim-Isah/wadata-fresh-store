@@ -7,8 +7,8 @@ const WhatsAppButton = () => {
   const whatsappUrl = createWhatsAppUrl({ message });
 
   // Replace with your actual shop coordinates
-  const latitude = '40.7128'; // Replace with your shop's latitude
-  const longitude = '-74.0060'; // Replace with your shop's longitude
+  const latitude = '9.0655021'; // Replace with your shop's latitude
+  const longitude = '7.4355549'; // Replace with your shop's longitude
   const mapsUrl = `https://www.google.com/maps?q=${latitude},${longitude}`;
 
   return (

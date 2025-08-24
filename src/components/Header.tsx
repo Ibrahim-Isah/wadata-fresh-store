@@ -2,7 +2,6 @@ import { motion } from 'framer-motion';
 import { Leaf, ShoppingCart, Phone } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { openWhatsApp } from '@/lib/whatsapp';
-import { Link } from 'react-router-dom';
 
 const Header = () => {
   const handleCallUs = () => {
