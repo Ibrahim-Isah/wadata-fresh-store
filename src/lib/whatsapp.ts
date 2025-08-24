@@ -3,7 +3,7 @@ export interface WhatsAppOptions {
   message: string;
 }
 
-export const createWhatsAppUrl = ({ phoneNumber = '+2348032892443', message }: WhatsAppOptions): string => {
+export const createWhatsAppUrl = ({ phoneNumber = '+2348149556915', message }: WhatsAppOptions): string => {
   return `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
 };
 
