@@ -1,15 +1,13 @@
 import { motion } from 'framer-motion';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { ShoppingCart, Star } from 'lucide-react';
-import { useState, useEffect, useRef } from 'react';
+import { ShoppingCart, Star, Search, X } from 'lucide-react';
+import { useState, useEffect, useRef, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
 import { createProductInquiryMessage, openWhatsApp } from '@/lib/whatsapp';
 import WhatsAppButton from '@/components/WhatsAppButton';
 import { allProducts } from '@/assets/data/all-products';
-
-// Product data for all 61 products
 
 // Lazy loading image component
 const LazyImage = ({ src, alt, className }: { src: string; alt: string; className: string }) => {
@@ -57,6 +55,8 @@ const LazyImage = ({ src, alt, className }: { src: string; alt: string; classNam
 };
 
 const Products = () => {
+  const [searchTerm, setSearchTerm] = useState('');
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -72,9 +72,28 @@ const Products = () => {
     visible: { opacity: 1, y: 0 },
   };
 
+  // Filter products based on search term
+  const filteredProducts = useMemo(() => {
+    if (!searchTerm.trim()) {
+      return allProducts;
+    }
+
+    const searchLower = searchTerm.toLowerCase();
+    return allProducts.filter(
+      (product) =>
+        product.name.toLowerCase().includes(searchLower) ||
+        product.category.toLowerCase().includes(searchLower) ||
+        product.description.toLowerCase().includes(searchLower)
+    );
+  }, [searchTerm]);
+
   const handleOrderNow = (productName: string) => {
     const message = createProductInquiryMessage(productName);
     openWhatsApp({ message });
+  };
+
+  const clearSearch = () => {
+    setSearchTerm('');
   };
 
   return (
@@ -82,7 +101,7 @@ const Products = () => {
       {/* Header */}
       <header className='sticky top-0 z-50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b border-border'>
         <div className='container mx-auto px-4 py-4'>
-          <div className='flex items-center justify-between'>
+          <div className='flex items-center justify-between mb-4'>
             <Link
               to='/'
               className='flex items-center space-x-2 text-foreground hover:text-vegetable-green transition-colors'>
@@ -92,6 +111,32 @@ const Products = () => {
             <h1 className='text-2xl font-bold text-transparent bg-gradient-fresh bg-clip-text'>
               All Products
             </h1>
+          </div>
+
+          {/* Search Bar */}
+          <div className='relative max-w-md mx-auto'>
+            <div className='relative'>
+              <Search className='absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground' />
+              <input
+                type='text'
+                placeholder='Search products, categories, or descriptions...'
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                className='w-full pl-10 pr-10 py-2 border border-border rounded-lg bg-background focus:outline-none focus:ring-2 focus:ring-vegetable-green focus:border-vegetable-green transition-colors'
+              />
+              {searchTerm && (
+                <button
+                  onClick={clearSearch}
+                  className='absolute right-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground hover:text-foreground transition-colors'>
+                  <X className='h-4 w-4' />
+                </button>
+              )}
+            </div>
+            {searchTerm && (
+              <div className='absolute top-full left-0 right-0 mt-1 text-sm text-muted-foreground text-center'>
+                {filteredProducts.length} product{filteredProducts.length !== 1 ? 's' : ''} found
+              </div>
+            )}
           </div>
         </div>
       </header>
@@ -114,52 +159,83 @@ const Products = () => {
             </p>
           </motion.div>
 
-          <motion.div
-            variants={containerVariants}
-            initial='hidden'
-            animate='visible'
-            className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6'>
-            {allProducts.map((product) => (
-              <motion.div
-                key={product.id}
-                variants={itemVariants}
-                whileHover={{ y: -10, scale: 1.02 }}
-                transition={{ duration: 0.3 }}>
-                <Card className='overflow-hidden bg-card border-border/50 hover:shadow-fresh transition-all duration-300'>
-                  <div className='relative overflow-hidden h-48'>
-                    <LazyImage
-                      src={product.image || ''}
-                      alt={product.name}
-                      className='w-full h-full'
-                    />
-                    <div className='absolute top-4 right-4 bg-vegetable-green text-white px-3 py-1 rounded-full text-sm font-medium'>
-                      Fresh
-                    </div>
-                  </div>
-
-                  <CardContent className='p-6'>
-                    <div className='flex items-center justify-between mb-2'>
-                      <h3 className='text-xl font-bold text-foreground'>{product.name}</h3>
-                      <div className='flex items-center space-x-1'>
-                        <Star className='h-4 w-4 fill-vegetable-yellow text-vegetable-yellow' />
-                        <span className='text-sm text-muted-foreground'>{product.rating}</span>
+          {filteredProducts.length === 0 ? (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              className='text-center py-12'>
+              <div className='text-6xl mb-4'>🔍</div>
+              <h3 className='text-2xl font-bold text-foreground mb-2'>No products found</h3>
+              <p className='text-muted-foreground mb-4'>
+                Try adjusting your search terms or browse all products.
+              </p>
+              <Button
+                onClick={clearSearch}
+                variant='outline'
+                className='hover:bg-vegetable-green hover:text-white transition-colors'>
+                Clear Search
+              </Button>
+            </motion.div>
+          ) : (
+            <motion.div
+              variants={containerVariants}
+              initial='hidden'
+              animate='visible'
+              className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6'>
+              {filteredProducts.map((product) => (
+                <motion.div
+                  key={product.id}
+                  variants={itemVariants}
+                  whileHover={{ y: -10, scale: 1.02 }}
+                  transition={{ duration: 0.3 }}>
+                  <Card className='overflow-hidden bg-card border-border/50 hover:shadow-fresh transition-all duration-300'>
+                    <div className='relative overflow-hidden h-48'>
+                      <LazyImage
+                        src={
+                          product.image ||
+                          'https://images.pexels.com/photos/102104/pexels-photo-102104.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+                        }
+                        alt={product.name}
+                        className='w-full h-full'
+                      />
+                      <div className='absolute top-4 right-4 bg-vegetable-green text-white px-3 py-1 rounded-full text-sm font-medium'>
+                        Fresh
                       </div>
                     </div>
 
-                    <p className='text-muted-foreground mb-4'>{product.description}</p>
+                    <CardContent className='p-6'>
+                      <div className='flex items-center justify-between mb-2'>
+                        <h3 className='text-xl font-bold text-foreground'>{product.name}</h3>
+                        <div className='flex items-center space-x-1'>
+                          <Star className='h-4 w-4 fill-vegetable-yellow text-vegetable-yellow' />
+                          <span className='text-sm text-muted-foreground'>{product.rating}</span>
+                        </div>
+                      </div>
 
-                    <Button
-                      size='sm'
-                      onClick={() => handleOrderNow(product.name)}
-                      className='bg-gradient-fresh hover:shadow-glow transition-all duration-300 w-full'>
-                      <ShoppingCart className='h-4 w-4 mr-1' />
-                      Order Now
-                    </Button>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
-          </motion.div>
+                      <p className='text-muted-foreground mb-4'>{product.description}</p>
+
+                      <div className='flex items-center justify-between mb-4'>
+                        <span className='text-lg font-bold text-vegetable-green'>
+                          {product.price}
+                        </span>
+                        <span className='text-xs text-muted-foreground bg-muted px-2 py-1 rounded-full capitalize'>
+                          {product.category}
+                        </span>
+                      </div>
+
+                      <Button
+                        size='sm'
+                        onClick={() => handleOrderNow(product.name)}
+                        className='bg-gradient-fresh hover:shadow-glow transition-all duration-300 w-full'>
+                        <ShoppingCart className='h-4 w-4 mr-1' />
+                        Order Now
+                      </Button>
+                    </CardContent>
+                  </Card>
+                </motion.div>
+              ))}
+            </motion.div>
+          )}
         </div>
       </section>
       <WhatsAppButton />

@@ -30,29 +30,32 @@ const Header = () => {
         </motion.div>
 
         <nav className='hidden md:flex items-center space-x-8'>
-          {['Home', 'Products', 'About', 'Team', 'Contact'].map((item, index) => (
-            <motion.a
-              key={item}
-              href={`#${item.toLowerCase()}`}
-              className='text-foreground hover:text-vegetable-green transition-colors font-medium'
-              whileHover={{ y: -2 }}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.3, delay: index * 0.1 }}>
-              {item}
-            </motion.a>
-          ))}
-          <motion.div
-            whileHover={{ y: -2 }}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.3, delay: 0.1 }}>
-            <Link
-              to='/products'
-              className='text-foreground hover:text-vegetable-green transition-colors font-medium'>
-              All Products
-            </Link>
-          </motion.div>
+          {['Home', { name: 'All Products', link: '/products' }, 'About', 'Team', 'Contact'].map(
+            (item, index) => {
+              if (typeof item !== 'string') {
+                return (
+                  <motion.a
+                    key={item.name}
+                    href={item.link}
+                    className='text-foreground hover:text-vegetable-green transition-colors font-medium'>
+                    {item.name}
+                  </motion.a>
+                );
+              }
+              return (
+                <motion.a
+                  key={item}
+                  href={`#${item.toLowerCase()}`}
+                  className='text-foreground hover:text-vegetable-green transition-colors font-medium'
+                  whileHover={{ y: -2 }}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.3, delay: index * 0.1 }}>
+                  {item}
+                </motion.a>
+              );
+            }
+          )}
         </nav>
 
         <motion.div

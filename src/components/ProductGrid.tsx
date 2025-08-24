@@ -1,7 +1,8 @@
 import { motion } from 'framer-motion';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { ShoppingCart, Star } from 'lucide-react';
+import { ShoppingCart, Star, ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { openWhatsApp, createProductInquiryMessage } from '@/lib/whatsapp';
 import tomatoesImage from '@/assets/tomatoes.jpg';
 import carrotsImage from '@/assets/carrots.jpg';
@@ -148,6 +149,24 @@ const ProductGrid = () => {
               </Card>
             </motion.div>
           ))}
+        </motion.div>
+
+        {/* View All Products Button */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          viewport={{ once: true }}
+          className='text-center mt-12'>
+          <Link to='/products'>
+            <Button
+              size='lg'
+              variant='outline'
+              className='group border-vegetable-green text-vegetable-green hover:bg-vegetable-green hover:text-white transition-all duration-300 px-8 py-3'>
+              View All Products
+              <ArrowRight className='h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform duration-300' />
+            </Button>
+          </Link>
         </motion.div>
       </div>
     </section>
