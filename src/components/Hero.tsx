@@ -157,24 +157,6 @@ const Hero = () => {
                 <Leaf className='h-8 w-8' />
               </motion.div>
             </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 1.4 }}
-              className='absolute -bottom-6 left-1/2 transform -translate-x-1/2 flex space-x-2'>
-              {heroImages.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => setCurrentImageIndex(index)}
-                  className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                    index === currentImageIndex
-                      ? 'bg-vegetable-green scale-125'
-                      : 'bg-vegetable-green/30 hover:bg-vegetable-green/60'
-                  }`}
-                />
-              ))}
-            </motion.div>
           </motion.div>
         </div>
       </div>

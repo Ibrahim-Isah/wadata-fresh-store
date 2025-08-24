@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { Leaf, ShoppingCart, Phone } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { openWhatsApp } from '@/lib/whatsapp';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
   const handleCallUs = () => {
@@ -41,6 +42,17 @@ const Header = () => {
               {item}
             </motion.a>
           ))}
+          <motion.div
+            whileHover={{ y: -2 }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.3, delay: 0.1 }}>
+            <Link
+              to='/products'
+              className='text-foreground hover:text-vegetable-green transition-colors font-medium'>
+              All Products
+            </Link>
+          </motion.div>
         </nav>
 
         <motion.div
