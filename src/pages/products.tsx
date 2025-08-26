@@ -215,9 +215,6 @@ const Products = () => {
                       <p className='text-muted-foreground mb-4'>{product.description}</p>
 
                       <div className='flex items-center justify-between mb-4'>
-                        <span className='text-lg font-bold text-vegetable-green'>
-                          {product.price}
-                        </span>
                         <span className='text-xs text-muted-foreground bg-muted px-2 py-1 rounded-full capitalize'>
                           {product.category}
                         </span>

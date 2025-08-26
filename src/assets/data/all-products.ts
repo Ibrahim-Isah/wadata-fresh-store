@@ -199,6 +199,7 @@ export const allProducts = [
     rating: 4.6,
     description: 'Tender green beans',
     category: 'legumes',
+    image: 'https://th.bing.com/th/id/R.08d32daa80e52a5be1e4f4e5f95404ee?rik=s%2brC7%2bBSLcPxEQ&riu=http%3a%2f%2fwww.offthegridnews.com%2fwp-content%2fuploads%2f2016%2f11%2fgreen-beans-public-domain-pictures.jpg&ehk=lfjfuw3yD9fWhu8dS6woeb2Gy5yBViF2fN0wXb7Xu34%3d&risl=&pid=ImgRaw&r=0'
   },
   {
     id: 22,
@@ -207,6 +208,7 @@ export const allProducts = [
     rating: 4.7,
     description: 'Fresh green bell peppers',
     category: 'fruits',
+    image: 'https://th.bing.com/th/id/R.08d32daa80e52a5be1e4f4e5f95404ee?rik=s%2brC7%2bBSLcPxEQ&riu=http%3a%2f%2fwww.offthegridnews.com%2fwp-content%2fuploads%2f2016%2f11%2fgreen-beans-public-domain-pictures.jpg&ehk=lfjfuw3yD9fWhu8dS6woeb2Gy5yBViF2fN0wXb7Xu34%3d&risl=&pid=ImgRaw&r=0'
   },
   {
     id: 23,
@@ -215,6 +217,7 @@ export const allProducts = [
     rating: 4.5,
     description: 'Spicy green chilies',
     category: 'peppers',
+    image: 'https://www.theayurveda.org/wp-content/uploads/2015/06/Hot-green-chillies.jpg'
   },
   {
     id: 24,
@@ -223,6 +226,7 @@ export const allProducts = [
     rating: 4.8,
     description: 'Sweet green peas',
     category: 'legumes',
+    image: 'https://th.bing.com/th/id/R.2575bf15db3d0e7998c2b23b6ad7931e?rik=cJqPvzzrtjnzLA&riu=http%3a%2f%2fthemicrogardener.com%2fwp-content%2fuploads%2f2013%2f05%2fGreen-peas-in-a-pod.jpg&ehk=Ds14zeLaBlamZysAgfMZeX36FJP%2f8Phtttcuvsedia0%3d&risl=&pid=ImgRaw&r=0'
   },
   {
     id: 25,
@@ -231,6 +235,7 @@ export const allProducts = [
     rating: 4.6,
     description: 'Fresh groundnuts',
     category: 'nuts',
+    image: 'https://cdn.wikifarmer.com/wp-content/uploads/2023/07/Groundnut-Plant-Information-History-Uses-and-Nutrition-Value.jpg'
   },
   {
     id: 26,
@@ -239,6 +244,7 @@ export const allProducts = [
     rating: 4.7,
     description: 'Crisp iceberg lettuce',
     category: 'leafy',
+    image: 'https://tse3.mm.bing.net/th/id/OIP.NZLNkenMgOhLl-83x-KP6AHaFC?rs=1&pid=ImgDetMain&o=7&rm=3'
   },
   {
     id: 27,
@@ -247,6 +253,7 @@ export const allProducts = [
     rating: 4.5,
     description: 'Fresh leeks',
     category: 'alliums',
+    image: 'https://th.bing.com/th/id/R.ee4060b5ed116959391669db7b5922d5?rik=7QZ0mcW7v9SMZA&riu=http%3a%2f%2ffreefoodphotos.com%2fimagelibrary%2fvegetables%2ffresh_leeks.jpg&ehk=TdDJKhhYxnMl70%2btOlhLdicE1HuaSntzpil3MuHu76U%3d&risl=&pid=ImgRaw&r=0'
   },
   {
     id: 28,
@@ -255,6 +262,7 @@ export const allProducts = [
     rating: 4.8,
     description: 'Juicy fresh lemons',
     category: 'citrus',
+    image: 'https://tse2.mm.bing.net/th/id/OIP.YUtrIQpBX9TVyz2MC61ORAHaFg?rs=1&pid=ImgDetMain&o=7&rm=3'
   },
   {
     id: 29,
@@ -263,6 +271,7 @@ export const allProducts = [
     rating: 4.7,
     description: 'Crispy fresh lettuce',
     category: 'leafy',
+    image: 'https://th.bing.com/th/id/R.3e12e2d6e21b37759cc15cd17ca4c200?rik=2SR5rNQIJH3FLg&pid=ImgRaw&r=0'
   },
   {
     id: 30,
@@ -271,6 +280,7 @@ export const allProducts = [
     rating: 4.6,
     description: 'Tangy fresh limes',
     category: 'citrus',
+    image: 'https://www.foodrepublic.com/img/gallery/11-types-of-limes-and-what-makes-them-unique/l-intro-1690475086.jpg'
   },
   {
     id: 31,
@@ -279,6 +289,7 @@ export const allProducts = [
     rating: 4.8,
     description: 'Fresh local tomatoes',
     category: 'fruits',
+    image:'https://th.bing.com/th/id/R.3c37fb3c91038ecce436b04cf291e0fb?rik=f6aUPQnFMbJn5A&pid=ImgRaw&r=0'
   },
   {
     id: 32,
@@ -287,6 +298,7 @@ export const allProducts = [
     rating: 4.9,
     description: 'Sweet ripe mangoes',
     category: 'fruits',
+    image: 'https://static.toiimg.com/photo/69185542.cms'
   },
   {
     id: 33,
@@ -295,6 +307,7 @@ export const allProducts = [
     rating: 4.5,
     description: 'Fresh marrow squash',
     category: 'squash',
+    image:'https://th.bing.com/th/id/R.36a1b84dd58d42a8319b63a1533090b2?rik=UHGi7xKmSaG5QA&riu=http%3a%2f%2f4.bp.blogspot.com%2f-ToJ3u7XHYHQ%2fUHLWw44pU8I%2fAAAAAAAABws%2fQvOS5qjKl7Q%2fs1600%2fMarrow-3.jpg&ehk=JcOWj6JidhgBLx8Pzi2vuCCPPh4XiOieIfvpdnTbdbA%3d&risl=&pid=ImgRaw&r=0'
   },
   {
     id: 34,
@@ -303,6 +316,7 @@ export const allProducts = [
     rating: 4.7,
     description: 'Aromatic mint leaves',
     category: 'herbs',
+    image: 'https://img.freepik.com/premium-photo/isolated-mint-leaf-capturing-its-refreshing-scent-int-photoshoot-top-view-professional_655090-722197.jpg'
   },
   {
     id: 35,
@@ -311,6 +325,7 @@ export const allProducts = [
     rating: 4.6,
     description: 'Fresh okra pods',
     category: 'pods',
+    image: 'https://i0.wp.com/www.hygeiahmo.com/wp-content/uploads/2017/09/okra.jpg?resize=1598%2C900&ssl=1'
   },
   {
     id: 36,
@@ -319,6 +334,7 @@ export const allProducts = [
     rating: 4.8,
     description: 'Juicy sweet oranges',
     category: 'citrus',
+    image: 'https://cdn.britannica.com/24/174524-050-A851D3F2/Oranges.jpg'
   },
   {
     id: 37,
@@ -327,6 +343,7 @@ export const allProducts = [
     rating: 4.7,
     description: 'Sweet ripe papayas',
     category: 'fruits',
+    image: 'https://th.bing.com/th/id/R.e1c33e69522426b3b29d5775d091255f?rik=8fxYxGcH%2fqtERw&riu=http%3a%2f%2fsupermarket.co.ug%2f3474-tm_thickbox_default%2ffresh-papaya-delivery.jpg&ehk=rvgU8zhZkyWwp9V85YXtf2ZAcXNRiyXTdMh%2bk9MLF%2b0%3d&risl=&pid=ImgRaw&r=0'
   },
   {
     id: 38,
@@ -335,6 +352,7 @@ export const allProducts = [
     rating: 4.8,
     description: 'Sweet tropical pineapples',
     category: 'fruits',
+    image:'https://www.well-beingsecrets.com/wp-content/uploads/The-History-Of-Pineapple.jpg'
   },
   {
     id: 39,
@@ -343,6 +361,7 @@ export const allProducts = [
     rating: 4.6,
     description: 'Fresh green plantains',
     category: 'fruits',
+    image:'https://cdn.britannica.com/67/145567-050-10DBDA72/Plantains-Plantain-bananas-areas-food-source.jpg'
   },
   {
     id: 40,
@@ -351,6 +370,7 @@ export const allProducts = [
     rating: 4.7,
     description: 'Firm plum tomatoes',
     category: 'fruits',
+    image: 'https://tse4.mm.bing.net/th/id/OIP.A-kWYsOKyvTRCrYIVZ2yDAHaE5?rs=1&pid=ImgDetMain&o=7&rm=3'
   },
   {
     id: 41,
