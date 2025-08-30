@@ -561,3 +561,10 @@ export const allProducts = [
     image: 'https://wallpapers.com/images/hd/yellow-bell-pepper-1920-x-1200-wallpaper-ehrawkmtjy8r933e.jpg'
   },
 ];
+
+
+export function getRandomProducts(products: typeof allProducts = allProducts, count: number = 6) {
+  return [...products]
+    .sort(() => Math.random() - 0.5)
+    .slice(0, count);
+}

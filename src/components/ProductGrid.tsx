@@ -4,63 +4,10 @@ import { Button } from '@/components/ui/button';
 import { ShoppingCart, Star, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { openWhatsApp, createProductInquiryMessage } from '@/lib/whatsapp';
-import tomatoesImage from '@/assets/tomatoes.jpg';
-import carrotsImage from '@/assets/carrots.jpg';
-import lettuceImage from '@/assets/lettuce.jpg';
-import peppersImage from '@/assets/peppers.jpg';
-import broccoliImage from '@/assets/broccoli.jpg';
-import onionsImage from '@/assets/onions.jpg';
+import { getRandomProducts } from '@/assets/data/all-products';
+import { LazyImage } from '@/pages/products';
 
-const products = [
-  {
-    id: 1,
-    name: 'Fresh Tomatoes',
-    rating: 4.8,
-    image: tomatoesImage,
-    description: 'Juicy red tomatoes',
-    category: 'fruits',
-  },
-  {
-    id: 2,
-    name: 'Organic Carrots',
-    rating: 4.9,
-    image: carrotsImage,
-    description: 'Sweet orange carrots',
-    category: 'roots',
-  },
-  {
-    id: 3,
-    name: 'Green Lettuce',
-    rating: 4.7,
-    image: lettuceImage,
-    description: 'Crispy fresh lettuce',
-    category: 'leafy',
-  },
-  {
-    id: 4,
-    name: 'Bell Peppers',
-    rating: 4.6,
-    image: peppersImage,
-    description: 'Colorful bell peppers',
-    category: 'fruits',
-  },
-  {
-    id: 5,
-    name: 'Fresh Broccoli',
-    rating: 4.8,
-    image: broccoliImage,
-    description: 'Nutritious green broccoli',
-    category: 'cruciferous',
-  },
-  {
-    id: 6,
-    name: 'White Onions',
-    rating: 4.5,
-    image: onionsImage,
-    description: 'Fresh white onions',
-    category: 'alliums',
-  },
-];
+const products = getRandomProducts();
 
 const ProductGrid = () => {
   const containerVariants = {
@@ -106,7 +53,7 @@ const ProductGrid = () => {
           initial='hidden'
           whileInView='visible'
           viewport={{ once: true }}
-          className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
+          className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8'>
           {products.map((product) => (
             <motion.div
               key={product.id}
@@ -114,13 +61,14 @@ const ProductGrid = () => {
               whileHover={{ y: -10, scale: 1.02 }}
               transition={{ duration: 0.3 }}>
               <Card className='overflow-hidden bg-card border-border/50 hover:shadow-fresh transition-all duration-300'>
-                <div className='relative overflow-hidden'>
-                  <motion.img
-                    whileHover={{ scale: 1.1 }}
-                    transition={{ duration: 0.5 }}
-                    src={product.image}
+                <div className='relative overflow-hidden h-48'>
+                  <LazyImage
+                    src={
+                      product.image ||
+                      'https://images.pexels.com/photos/102104/pexels-photo-102104.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+                    }
                     alt={product.name}
-                    className='w-full h-64 object-cover'
+                    className='w-full h-full'
                   />
                   <div className='absolute top-4 right-4 bg-vegetable-green text-white px-3 py-1 rounded-full text-sm font-medium'>
                     Fresh
@@ -138,11 +86,17 @@ const ProductGrid = () => {
 
                   <p className='text-muted-foreground mb-4'>{product.description}</p>
 
+                  <div className='flex items-center justify-between mb-4'>
+                    <span className='text-xs text-muted-foreground bg-muted px-2 py-1 rounded-full capitalize'>
+                      {product.category}
+                    </span>
+                  </div>
+
                   <Button
                     size='sm'
                     onClick={() => handleOrderNow(product.name)}
                     className='bg-gradient-fresh hover:shadow-glow transition-all duration-300 w-full'>
-                    <ShoppingCart className='h-4 w-4 mr-2' />
+                    <ShoppingCart className='h-4 w-4 mr-1' />
                     Order Now
                   </Button>
                 </CardContent>

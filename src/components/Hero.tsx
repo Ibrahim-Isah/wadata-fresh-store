@@ -8,11 +8,13 @@ import heroImage from '@/assets/hero-vegetables.jpg';
 import carrots from '@/assets/carrots.jpg';
 import lettuce from '@/assets/lettuce.jpg';
 import brococoli from '@/assets/broccoli.jpg';
+import { useNavigate } from 'react-router-dom';
 
 const heroImages = [heroImage, carrots, brococoli, lettuce];
 
 const Hero = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -25,9 +27,8 @@ const Hero = () => {
   }, []);
 
   const handleShopNow = () => {
-    const message =
-      "Hi! I'd like to browse your fresh vegetables and place an order. Can you help me?";
-    openWhatsApp({ message });
+    navigate('/products');
+    return;
   };
 
   const handleLearnMore = () => {
@@ -85,7 +86,7 @@ const Hero = () => {
                 onClick={handleShopNow}
                 className='bg-gradient-fresh hover:shadow-glow transition-all duration-300 text-lg px-8 py-6'>
                 <ShoppingCart className='h-5 w-5 mr-2' />
-                Shop Now
+                View Products
               </Button>
               <Button
                 variant='outline'

@@ -10,7 +10,15 @@ import WhatsAppButton from '@/components/WhatsAppButton';
 import { allProducts } from '@/assets/data/all-products';
 
 // Lazy loading image component
-const LazyImage = ({ src, alt, className }: { src: string; alt: string; className: string }) => {
+export const LazyImage = ({
+  src,
+  alt,
+  className,
+}: {
+  src: string;
+  alt: string;
+  className: string;
+}) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [isInView, setIsInView] = useState(false);
   const imgRef = useRef<HTMLImageElement>(null);
