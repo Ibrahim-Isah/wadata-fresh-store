@@ -8,6 +8,7 @@ import { ArrowLeft } from 'lucide-react';
 import { createProductInquiryMessage, openWhatsApp } from '@/lib/whatsapp';
 import WhatsAppButton from '@/components/WhatsAppButton';
 import { allProducts } from '@/assets/data/all-products';
+import SEO from '@/components/SEO';
 
 // Lazy loading image component
 export const LazyImage = ({
@@ -104,8 +105,42 @@ const Products = () => {
     setSearchTerm('');
   };
 
+  const productsPageSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name: 'Fresh Vegetables Products - Abuja Nigeria',
+    description:
+      'Browse our complete collection of fresh vegetables available for delivery in Abuja, Nigeria. Tomatoes, lettuce, carrots, peppers, onions and more organic produce.',
+    url: 'https://wadata-fresh-store.vercel.app/products',
+    mainEntity: {
+      '@type': 'ItemList',
+      numberOfItems: allProducts.length,
+      itemListElement: allProducts.slice(0, 10).map((product, index) => ({
+        '@type': 'Product',
+        position: index + 1,
+        name: product.name,
+        description: product.description,
+        image: product.image,
+        category: product.category,
+        offers: {
+          '@type': 'Offer',
+          availability: 'https://schema.org/InStock',
+          priceCurrency: 'NGN',
+        },
+      })),
+    },
+  };
+
   return (
     <div className='min-h-screen bg-background'>
+      <SEO
+        title='Fresh Vegetables Products Abuja | Tomatoes, Lettuce, Carrots Delivery Nigeria'
+        description='Browse our complete collection of fresh vegetables available for delivery in Abuja, Nigeria. Order tomatoes, lettuce, carrots, peppers, onions and more organic produce online.'
+        keywords='fresh vegetables Abuja, tomatoes Abuja, lettuce Nigeria, carrots delivery, peppers Abuja, onions Nigeria, organic vegetables FCT, vegetables online Abuja, farm fresh produce Nigeria'
+        url='https://wadata-fresh-store.vercel.app/products'
+        image='/tomatoes.jpg'
+        schema={productsPageSchema}
+      />
       {/* Header */}
       <header className='sticky top-0 z-50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b border-border'>
         <div className='container mx-auto px-4 py-4'>

@@ -1,0 +1,17 @@
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://wadata-fresh-store.vercel.app/sitemap.xml
+
+# Disallow access to admin areas (if any)
+Disallow: /admin/
+Disallow: /private/
+Disallow: /*.json$
+
+# Allow search engines to crawl all product pages
+Allow: /products
+Allow: /
+
+# Crawl-delay for polite crawling
+Crawl-delay: 1

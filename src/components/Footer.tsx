@@ -19,11 +19,11 @@ const Footer = () => {
               <div className='p-2 bg-gradient-fresh rounded-lg'>
                 <Leaf className='h-6 w-6 text-white' />
               </div>
-              <span className='text-xl font-bold'>Wadata Vegetables</span>
+              <span className='text-xl font-bold'>Wadata Fresh Store</span>
             </div>
             <p className='text-gray-300 leading-relaxed'>
-              Your trusted partner for fresh, organic vegetables delivered straight from the farm to
-              your table.
+              Abuja's premier fresh vegetables delivery service. Your trusted partner for organic,
+              farm-fresh produce delivered straight from Nigerian farms to your table across FCT.
             </p>
             <div className='flex space-x-4'>
               {[Facebook, Instagram, Twitter].map((Icon, index) => (

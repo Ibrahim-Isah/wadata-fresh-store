@@ -4,26 +4,26 @@ import { Truck, Leaf, Clock, Star } from 'lucide-react';
 const features = [
   {
     icon: Truck,
-    title: 'Free Delivery',
-    description: 'Free delivery within Abuja on orders over ₦50,000',
+    title: 'Free Delivery Abuja',
+    description: 'Free delivery within Abuja FCT on orders over ₦50,000',
     color: 'vegetable-green',
   },
   {
     icon: Leaf,
-    title: '100% Fresh',
-    description: 'Farm-fresh vegetables daily',
+    title: '100% Organic Nigerian Produce',
+    description: 'Farm-fresh vegetables from local Nigerian farms daily',
     color: 'vegetable-green',
   },
   {
     icon: Clock,
-    title: 'Quick Response',
-    description: 'Fast WhatsApp orders and delivery',
+    title: 'Quick WhatsApp Orders',
+    description: 'Fast WhatsApp orders and same-day delivery in Abuja',
     color: 'vegetable-orange',
   },
   {
     icon: Star,
-    title: 'Premium Quality',
-    description: 'Hand-picked premium vegetables',
+    title: 'Premium Quality Guarantee',
+    description: 'Hand-picked premium vegetables from certified Nigerian farms',
     color: 'vegetable-yellow',
   },
 ];

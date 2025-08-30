@@ -8,25 +8,25 @@ const contactInfo = [
   {
     icon: MapPin,
     title: 'Our Location',
-    details: ['No 5 Gano close, Yoruba mosque', 'Medical centre gate', 'Abuja, Nigeria'],
+    details: ['No 5 Gano close, Yoruba mosque', 'Medical centre gate', 'Abuja FCT, Nigeria'],
     color: 'vegetable-green',
   },
   {
     icon: Phone,
     title: 'Phone Number',
-    details: ['08032892443', '08149556915', 'WhatsApp Available'],
+    details: ['08032892443', '08149556915', 'WhatsApp Available 24/7'],
     color: 'vegetable-orange',
   },
   {
     icon: Mail,
     title: 'Email Address',
-    details: ['Wadaataa@gmail.com', 'Orders & Inquiries', 'Customer Support'],
+    details: ['Wadaataa@gmail.com', 'Orders & Inquiries', 'Customer Support Nigeria'],
     color: 'vegetable-red',
   },
   {
     icon: Clock,
     title: 'Working Hours',
-    details: ['Monday - Friday: 7AM - 7PM', 'Saturday: 8AM - 6PM', 'Sunday: 9AM - 5PM'],
+    details: ['Monday - Friday: 7AM - 7PM', 'Saturday: 8AM - 6PM', 'Sunday: 9AM - 5PM WAT'],
     color: 'vegetable-yellow',
   },
 ];
@@ -63,10 +63,14 @@ const Contact = () => {
           viewport={{ once: true }}
           className='text-center mb-16'>
           <h2 className='text-4xl md:text-5xl font-bold text-foreground mb-4'>
-            Get In <span className='text-transparent bg-gradient-fresh bg-clip-text'>Touch</span>
+            Contact{' '}
+            <span className='text-transparent bg-gradient-fresh bg-clip-text'>
+              Wadata Fresh Store
+            </span>
           </h2>
           <p className='text-xl text-muted-foreground max-w-2xl mx-auto'>
-            Ready to order fresh vegetables? Contact us through any of these convenient methods.
+            Ready to order fresh vegetables in Abuja? Contact Nigeria's premier organic vegetable
+            delivery service through any of these convenient methods.
           </p>
         </motion.div>
 

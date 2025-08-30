@@ -27,7 +27,9 @@ const About = () => {
                 viewport={{ once: true }}
                 className='text-4xl md:text-5xl font-bold text-foreground mb-6'>
                 Why Choose{' '}
-                <span className='text-transparent bg-gradient-fresh bg-clip-text'>Us?</span>
+                <span className='text-transparent bg-gradient-fresh bg-clip-text'>
+                  Wadata Fresh Store?
+                </span>
               </motion.h2>
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
@@ -35,10 +37,11 @@ const About = () => {
                 transition={{ duration: 0.6, delay: 0.2 }}
                 viewport={{ once: true }}
                 className='text-xl text-muted-foreground leading-relaxed'>
-                We are passionate about bringing you the freshest, highest quality vegetables
-                straight from local farms. Our commitment to organic farming and sustainable
-                practices ensures that every vegetable you receive is not only delicious but also
-                nutritious and environmentally friendly.
+                We are Abuja's leading fresh vegetables delivery service, passionate about bringing
+                you the freshest, highest quality vegetables straight from Nigerian local farms. Our
+                commitment to organic farming and sustainable practices ensures that every vegetable
+                you receive is not only delicious but also nutritious and environmentally friendly.
+                Serving Abuja, FCT and surrounding areas.
               </motion.p>
             </div>
 

@@ -54,7 +54,7 @@ const Hero = () => {
               transition={{ duration: 0.6, delay: 0.2 }}
               className='flex items-center space-x-2 text-vegetable-green'>
               <Leaf className='h-5 w-5' />
-              <span className='text-sm font-medium'>100% Organic & Fresh</span>
+              <span className='text-sm font-medium'>100% Organic & Fresh from Nigerian Farms</span>
             </motion.div>
 
             <motion.h1
@@ -62,9 +62,11 @@ const Hero = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
               className='text-5xl md:text-7xl font-bold text-foreground leading-tight'>
-              FRESH
+              FRESH VEGETABLES
               <br />
-              <span className='text-transparent bg-gradient-fresh bg-clip-text'>VEGETABLES</span>
+              <span className='text-transparent bg-gradient-fresh bg-clip-text'>
+                ABUJA DELIVERY
+              </span>
             </motion.h1>
 
             <motion.p
@@ -72,8 +74,8 @@ const Hero = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.5 }}
               className='text-xl text-muted-foreground max-w-md'>
-              Farm-fresh vegetables delivered straight to your door. Experience the taste of
-              nature's finest produce.
+              Premium farm-fresh vegetables delivered across Abuja and FCT, Nigeria. Experience the
+              taste of nature's finest organic produce from local Nigerian farms.
             </motion.p>
 
             <motion.div
