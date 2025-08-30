@@ -468,7 +468,7 @@ export const allProducts = [
     rating: 4.7,
     description: 'Crisp seedless cucumbers',
     category: 'fruits',
-    image: ''
+    image: 'https://th.bing.com/th/id/R.caf88bb7312301c85b9f8ce40ddc511a?rik=miL6t%2btqrGUpyQ&pid=ImgRaw&r=0'
   },
   {
     id: 52,
@@ -477,7 +477,7 @@ export const allProducts = [
     rating: 4.8,
     description: 'Fresh baby spinach',
     category: 'leafy',
-    image: ''
+    image: 'https://tse3.mm.bing.net/th/id/OIP.QlF4fYFHkp0XN7QJLrrJjQHaE8?rs=1&pid=ImgDetMain&o=7&rm=3'
   },
   {
     id: 53,
@@ -486,7 +486,7 @@ export const allProducts = [
     rating: 4.6,
     description: 'Fresh spring onions',
     category: 'alliums',
-    image: ''
+    image: 'https://tse3.mm.bing.net/th/id/OIP.k73XiqOVGI_Met-dYjX5SAAAAA?rs=1&pid=ImgDetMain&o=7&rm=3'
   },
   {
     id: 54,
@@ -495,7 +495,7 @@ export const allProducts = [
     rating: 4.5,
     description: 'Red tatashe peppers',
     category: 'peppers',
-    image: ''
+    image: "https://tse2.mm.bing.net/th/id/OIP.iP0Q9MxIoeW44wjKc6_MgQAAAA?rs=1&pid=ImgDetMain&o=7&rm=3"
   },
   {
     id: 55,
@@ -504,7 +504,7 @@ export const allProducts = [
     rating: 4.7,
     description: 'Aromatic thyme herbs',
     category: 'herbs',
-    image: ''
+    image: "https://th.bing.com/th/id/R.ac81f0fb7ae6a9ea03231696e11df320?rik=aD7fhokaAB4yzQ&pid=ImgRaw&r=0"
   },
   {
     id: 56,
@@ -513,7 +513,7 @@ export const allProducts = [
     rating: 4.8,
     description: 'Sweet juicy watermelons',
     category: 'fruits',
-    image: ''
+    image: 'https://th.bing.com/th/id/R.b219cff47981edaacdd87481b0f677ad?rik=Kl%2byblAxtIA4vQ&amp;riu=http%3a%2f%2fdraxe.com%2fwp-content%2fuploads%2f2015%2f05%2fbigstock-Watermelon-Is-Sold-At-The-Baza-90952598.jpg&amp;ehk=uL%2fD361yIDcrrp0NjYtNem1rVaclsvUbM64NVLK4yXw%3d&amp;risl=&amp;pid=ImgRaw&amp;r=0'
   },
   {
     id: 57,
@@ -522,7 +522,7 @@ export const allProducts = [
     rating: 4.5,
     description: 'Fresh white onions',
     category: 'alliums',
-    image: ''
+    image: 'https://1.bp.blogspot.com/-qjFlwsvD6OU/Xyh5KGV0jWI/AAAAAAACpdk/9CJc_GuTST4Jp6m1ymVcv0dhpIfxvW38wCLcBGAsYHQ/s2048/White%2BOnions.jpg'
   },
   {
     id: 58,
@@ -531,7 +531,7 @@ export const allProducts = [
     rating: 4.4,
     description: 'Mild white radishes',
     category: 'roots',
-    image: ''
+    image: 'https://th.bing.com/th/id/R.c9cf0fe52f1aa950b220102cd614d9fe?rik=oAYBudqnJVjGqA&pid=ImgRaw&r=0'
   },
   {
     id: 59,
@@ -540,7 +540,7 @@ export const allProducts = [
     rating: 4.6,
     description: 'Sweet white potatoes',
     category: 'tubers',
-    image: ''
+    image: 'https://i1.wp.com/spicetown.fi/wp-content/uploads/Sweet-Potato-white-3-kg-scaled.jpg?fit=2560%2C1943&ssl=1'
   },
   {
     id: 60,
@@ -549,7 +549,7 @@ export const allProducts = [
     rating: 4.7,
     description: 'Fresh yam tubers',
     category: 'tubers',
-    image: ''
+    image: 'https://thepostghana.com/wp-content/uploads/2022/06/yam-1140x570.jpg'
   },
   {
     id: 61,
@@ -558,6 +558,6 @@ export const allProducts = [
     rating: 4.8,
     description: 'Sweet yellow bell peppers',
     category: 'fruits',
-    image: ''
+    image: 'https://wallpapers.com/images/hd/yellow-bell-pepper-1920-x-1200-wallpaper-ehrawkmtjy8r933e.jpg'
   },
 ];
