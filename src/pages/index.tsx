@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import Header from '@/components/Header';
 import Hero from '@/components/Hero';
 import Features from '@/components/Features';
@@ -11,6 +12,10 @@ import CertificationSection from '@/components/CertificationSection';
 import SEO from '@/components/SEO';
 
 const Index = () => {
+  // Ensure scroll to top on component mount
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   const homePageSchema = {
     '@context': 'https://schema.org',
     '@type': 'Organization',

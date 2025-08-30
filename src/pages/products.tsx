@@ -66,6 +66,11 @@ export const LazyImage = ({
 const Products = () => {
   const [searchTerm, setSearchTerm] = useState('');
 
+  // Ensure scroll to top on component mount
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
