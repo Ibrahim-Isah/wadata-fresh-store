@@ -199,16 +199,15 @@ export const allProducts = [
     rating: 4.6,
     description: 'Tender green beans',
     category: 'legumes',
-    image: 'https://th.bing.com/th/id/R.08d32daa80e52a5be1e4f4e5f95404ee?rik=s%2brC7%2bBSLcPxEQ&riu=http%3a%2f%2fwww.offthegridnews.com%2fwp-content%2fuploads%2f2016%2f11%2fgreen-beans-public-domain-pictures.jpg&ehk=lfjfuw3yD9fWhu8dS6woeb2Gy5yBViF2fN0wXb7Xu34%3d&risl=&pid=ImgRaw&r=0'
-  },
-  {
+    image: 'https://livingonthecheap.com/lotc-cms/wp-content/uploads/2018/07/green-beans-dp.jpg',
+  },  {
     id: 22,
     name: 'Green Bell Pepper',
     price: '$4.99/kg',
     rating: 4.7,
     description: 'Fresh green bell peppers',
     category: 'fruits',
-    image: 'https://th.bing.com/th/id/R.08d32daa80e52a5be1e4f4e5f95404ee?rik=s%2brC7%2bBSLcPxEQ&riu=http%3a%2f%2fwww.offthegridnews.com%2fwp-content%2fuploads%2f2016%2f11%2fgreen-beans-public-domain-pictures.jpg&ehk=lfjfuw3yD9fWhu8dS6woeb2Gy5yBViF2fN0wXb7Xu34%3d&risl=&pid=ImgRaw&r=0'
+    image: 'https://imgeng.jagran.com/images/2023/nov/benefitsofeatinggraeenbellpepdper1699012437133.jpg'
   },
   {
     id: 23,
@@ -226,7 +225,7 @@ export const allProducts = [
     rating: 4.8,
     description: 'Sweet green peas',
     category: 'legumes',
-    image: 'https://th.bing.com/th/id/R.2575bf15db3d0e7998c2b23b6ad7931e?rik=cJqPvzzrtjnzLA&riu=http%3a%2f%2fthemicrogardener.com%2fwp-content%2fuploads%2f2013%2f05%2fGreen-peas-in-a-pod.jpg&ehk=Ds14zeLaBlamZysAgfMZeX36FJP%2f8Phtttcuvsedia0%3d&risl=&pid=ImgRaw&r=0'
+    image: 'https://www.judiklee.com/wp-content/uploads/2020/01/green-peas-picture-1-624x416.jpg'
   },
   {
     id: 25,
@@ -253,7 +252,7 @@ export const allProducts = [
     rating: 4.5,
     description: 'Fresh leeks',
     category: 'alliums',
-    image: 'https://th.bing.com/th/id/R.ee4060b5ed116959391669db7b5922d5?rik=7QZ0mcW7v9SMZA&riu=http%3a%2f%2ffreefoodphotos.com%2fimagelibrary%2fvegetables%2ffresh_leeks.jpg&ehk=TdDJKhhYxnMl70%2btOlhLdicE1HuaSntzpil3MuHu76U%3d&risl=&pid=ImgRaw&r=0'
+    image: 'https://i.fbcd.co/products/resized/resized-750-500/c-1000-designbundle-cut-fresh-leeks-2-21-11-9edfd4ad0728a75bd5733e722ecaf4c5a082cec6357f536b2fd6f73bed47c544.jpg'
   },
   {
     id: 28,
@@ -307,7 +306,7 @@ export const allProducts = [
     rating: 4.5,
     description: 'Fresh marrow squash',
     category: 'squash',
-    image:'https://th.bing.com/th/id/R.36a1b84dd58d42a8319b63a1533090b2?rik=UHGi7xKmSaG5QA&riu=http%3a%2f%2f4.bp.blogspot.com%2f-ToJ3u7XHYHQ%2fUHLWw44pU8I%2fAAAAAAAABws%2fQvOS5qjKl7Q%2fs1600%2fMarrow-3.jpg&ehk=JcOWj6JidhgBLx8Pzi2vuCCPPh4XiOieIfvpdnTbdbA%3d&risl=&pid=ImgRaw&r=0'
+    image:'https://img.freepik.com/premium-photo/bunch-fresh-marrow-squash-is-farmers-table_351981-4579.jpg'
   },
   {
     id: 34,
@@ -343,7 +342,7 @@ export const allProducts = [
     rating: 4.7,
     description: 'Sweet ripe papayas',
     category: 'fruits',
-    image: 'https://th.bing.com/th/id/R.e1c33e69522426b3b29d5775d091255f?rik=8fxYxGcH%2fqtERw&riu=http%3a%2f%2fsupermarket.co.ug%2f3474-tm_thickbox_default%2ffresh-papaya-delivery.jpg&ehk=rvgU8zhZkyWwp9V85YXtf2ZAcXNRiyXTdMh%2bk9MLF%2b0%3d&risl=&pid=ImgRaw&r=0'
+    image: 'https://tastylicious.com/wp-content/uploads/2022/09/ripe-papaya-fruits-720x481.jpg'
   },
   {
     id: 38,
@@ -379,6 +378,7 @@ export const allProducts = [
     rating: 4.8,
     description: 'Fresh white potatoes',
     category: 'tubers',
+    image: 'https://5.imimg.com/data5/SELLER/Default/2022/10/HS/NG/FH/7029309/potato-bags-500x500.jpeg'
   },
   {
     id: 42,
@@ -387,6 +387,7 @@ export const allProducts = [
     rating: 4.5,
     description: 'Orange pumpkins',
     category: 'squash',
+    image: "https://tse1.mm.bing.net/th/id/OIF.p5wodoWTVrmAM3AdfStXRQ?rs=1&pid=ImgDetMain&o=7&rm=3"
   },
   {
     id: 43,
@@ -395,6 +396,7 @@ export const allProducts = [
     rating: 4.8,
     description: 'Sweet red bell peppers',
     category: 'fruits',
+    image: "https://www.stylecraze.com/wp-content/uploads/2013/08/15-Best-Benefits-Of-Red-Bell-Pepper-For-Skin-Hair-And-Health-1.jpg"
   },
   {
     id: 44,
@@ -403,6 +405,7 @@ export const allProducts = [
     rating: 4.6,
     description: 'Purple red cabbage',
     category: 'leafy',
+    image: 'https://domf5oio6qrcr.cloudfront.net/medialibrary/5113/h0518g16207257080528.jpg'
   },
   {
     id: 45,
@@ -411,6 +414,7 @@ export const allProducts = [
     rating: 4.7,
     description: 'Hot red chili peppers',
     category: 'peppers',
+    image: "https://tse3.mm.bing.net/th/id/OIP.9-1PmGOXkV41A0v0PhecoAHaLH?rs=1&pid=ImgDetMain&o=7&rm=3"
   },
   {
     id: 46,
@@ -419,6 +423,7 @@ export const allProducts = [
     rating: 4.5,
     description: 'Fresh red onions',
     category: 'alliums',
+    image: 'https://tse4.mm.bing.net/th/id/OIP.Rs7g7XN_sylRe8Ml0A0zvQHaHa?rs=1&pid=ImgDetMain&o=7&rm=3'
   },
   {
     id: 47,
@@ -427,6 +432,7 @@ export const allProducts = [
     rating: 4.4,
     description: 'Crisp red radishes',
     category: 'roots',
+    image: 'https://portalvhds26k4f5tktj3ck.blob.core.windows.net/spotpics/sp71457.jpg'
   },
   {
     id: 48,
@@ -435,22 +441,25 @@ export const allProducts = [
     rating: 4.7,
     description: 'Sweet red potatoes',
     category: 'tubers',
+    image: 'https://tse2.mm.bing.net/th/id/OIP.UsoblN6xqM5Wh94KwTlZsgHaEY?rs=1&pid=ImgDetMain&o=7&rm=3'
   },
   {
     id: 49,
-    name: 'Rocca',
+    name: 'Rocca Leaves',
     price: '$3.99/bunch',
     rating: 4.6,
     description: 'Peppery rocca leaves',
     category: 'leafy',
+    image: 'https://freshleafuae.com/wp-content/uploads/2024/08/roca-leaves-freshleaf-dubai-uae-img04.jpg'
   },
   {
     id: 50,
-    name: 'Rosemary',
+    name: 'Rosemary Herbs',
     price: '$2.99/bunch',
     rating: 4.8,
     description: 'Fragrant rosemary herbs',
     category: 'herbs',
+    image: "https://westonseeds.com/wp-content/uploads/2021/01/Rosemary.jpg"
   },
   {
     id: 51,
@@ -459,6 +468,7 @@ export const allProducts = [
     rating: 4.7,
     description: 'Crisp seedless cucumbers',
     category: 'fruits',
+    image: ''
   },
   {
     id: 52,
@@ -467,6 +477,7 @@ export const allProducts = [
     rating: 4.8,
     description: 'Fresh baby spinach',
     category: 'leafy',
+    image: ''
   },
   {
     id: 53,
@@ -475,6 +486,7 @@ export const allProducts = [
     rating: 4.6,
     description: 'Fresh spring onions',
     category: 'alliums',
+    image: ''
   },
   {
     id: 54,
@@ -483,6 +495,7 @@ export const allProducts = [
     rating: 4.5,
     description: 'Red tatashe peppers',
     category: 'peppers',
+    image: ''
   },
   {
     id: 55,
@@ -491,6 +504,7 @@ export const allProducts = [
     rating: 4.7,
     description: 'Aromatic thyme herbs',
     category: 'herbs',
+    image: ''
   },
   {
     id: 56,
@@ -499,6 +513,7 @@ export const allProducts = [
     rating: 4.8,
     description: 'Sweet juicy watermelons',
     category: 'fruits',
+    image: ''
   },
   {
     id: 57,
@@ -507,6 +522,7 @@ export const allProducts = [
     rating: 4.5,
     description: 'Fresh white onions',
     category: 'alliums',
+    image: ''
   },
   {
     id: 58,
@@ -515,6 +531,7 @@ export const allProducts = [
     rating: 4.4,
     description: 'Mild white radishes',
     category: 'roots',
+    image: ''
   },
   {
     id: 59,
@@ -523,6 +540,7 @@ export const allProducts = [
     rating: 4.6,
     description: 'Sweet white potatoes',
     category: 'tubers',
+    image: ''
   },
   {
     id: 60,
@@ -531,6 +549,7 @@ export const allProducts = [
     rating: 4.7,
     description: 'Fresh yam tubers',
     category: 'tubers',
+    image: ''
   },
   {
     id: 61,
@@ -539,5 +558,6 @@ export const allProducts = [
     rating: 4.8,
     description: 'Sweet yellow bell peppers',
     category: 'fruits',
+    image: ''
   },
 ];

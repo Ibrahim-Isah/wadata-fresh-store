@@ -41,7 +41,7 @@ const Hero = () => {
       id='home'
       className='relative min-h-screen flex items-center justify-center bg-gradient-hero overflow-hidden'>
       <div className='container mx-auto px-4 py-20 pt-32'>
-        <div className='grid lg:grid-cols-2 gap-12 items-center'>
+        <div className='grid lg:grid-cols-2 gap-4 items-center'>
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}

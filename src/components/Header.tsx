@@ -68,7 +68,7 @@ const Header = () => {
             onClick={handleCallUs}
             className='hidden sm:flex items-center space-x-2'>
             <Phone className='h-4 w-4' />
-            <span>Call Us</span>
+            <span>Call Us: 08149556915</span>
           </Button>
           <Button
             variant='default'
