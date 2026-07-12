@@ -1,6 +1,14 @@
 import { motion } from 'framer-motion';
 import { Truck, Leaf, Clock, Star } from 'lucide-react';
 
+// Tailwind can't compile dynamically-built class names, so map colors to full class strings
+const colorStyles = {
+  'vegetable-green': { bg: 'bg-vegetable-green/10', text: 'text-vegetable-green' },
+  'vegetable-orange': { bg: 'bg-vegetable-orange/10', text: 'text-vegetable-orange' },
+  'vegetable-red': { bg: 'bg-vegetable-red/10', text: 'text-vegetable-red' },
+  'vegetable-yellow': { bg: 'bg-vegetable-yellow/10', text: 'text-vegetable-yellow' },
+} as const;
+
 const features = [
   {
     icon: Truck,
@@ -26,7 +34,7 @@ const features = [
     description: 'Hand-picked premium vegetables from certified Nigerian farms',
     color: 'vegetable-yellow',
   },
-];
+] as const;
 
 const Features = () => {
   const containerVariants = {
@@ -45,31 +53,34 @@ const Features = () => {
   };
 
   return (
-    <section className='py-20 bg-background'>
+    <section className='py-24 bg-background'>
       <div className='container mx-auto px-4'>
         <motion.div
           variants={containerVariants}
           initial='hidden'
           whileInView='visible'
           viewport={{ once: true }}
-          className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8'>
+          className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6'>
           {features.map((feature, index) => {
             const Icon = feature.icon;
+            const colors = colorStyles[feature.color];
             return (
               <motion.div
                 key={index}
                 variants={itemVariants}
-                whileHover={{ y: -10, scale: 1.05 }}
+                whileHover={{ y: -6 }}
                 transition={{ duration: 0.3 }}
-                className='text-center p-6 rounded-2xl bg-muted/30 border border-border/50 hover:shadow-fresh transition-all duration-300'>
-                <motion.div
-                  whileHover={{ rotate: 360 }}
-                  transition={{ duration: 0.6 }}
-                  className={`inline-flex items-center justify-center w-16 h-16 bg-${feature.color}/10 rounded-full mb-4`}>
-                  <Icon className={`h-8 w-8 text-${feature.color}`} />
-                </motion.div>
-                <h3 className='text-xl font-bold text-foreground mb-2'>{feature.title}</h3>
-                <p className='text-muted-foreground'>{feature.description}</p>
+                className='group text-center p-8 rounded-2xl bg-card border border-border/60 shadow-card hover:shadow-fresh hover:border-primary/30 transition-all duration-300'>
+                <div
+                  className={`inline-flex items-center justify-center w-14 h-14 ${colors.bg} rounded-2xl mb-5 transition-transform duration-300 group-hover:scale-110`}>
+                  <Icon className={`h-7 w-7 ${colors.text}`} />
+                </div>
+                <h3 className='font-display text-lg font-bold text-foreground mb-2'>
+                  {feature.title}
+                </h3>
+                <p className='text-sm text-muted-foreground leading-relaxed'>
+                  {feature.description}
+                </p>
               </motion.div>
             );
           })}

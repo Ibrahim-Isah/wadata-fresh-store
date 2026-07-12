@@ -2,6 +2,25 @@ import { motion } from 'framer-motion';
 import { Card, CardContent } from '@/components/ui/card';
 import { Mail, Phone } from 'lucide-react';
 
+// Tailwind can't compile dynamically-built class names, so map colors to full class strings
+const colorStyles = {
+  'vegetable-green': {
+    badge: 'bg-vegetable-green',
+    text: 'text-vegetable-green',
+    iconBg: 'bg-vegetable-green/10 hover:bg-vegetable-green/20',
+  },
+  'vegetable-orange': {
+    badge: 'bg-vegetable-orange',
+    text: 'text-vegetable-orange',
+    iconBg: 'bg-vegetable-orange/10 hover:bg-vegetable-orange/20',
+  },
+  'vegetable-yellow': {
+    badge: 'bg-vegetable-yellow',
+    text: 'text-vegetable-yellow',
+    iconBg: 'bg-vegetable-yellow/10 hover:bg-vegetable-yellow/20',
+  },
+} as const;
+
 const teamMembers = [
   {
     id: 1,
@@ -63,7 +82,7 @@ const teamMembers = [
     phone: '+1 (555) 123-4572',
     color: 'vegetable-yellow',
   },
-];
+] as const;
 
 const TeamSection = () => {
   const containerVariants = {
@@ -82,7 +101,7 @@ const TeamSection = () => {
   };
 
   return (
-    <section id='team' className='py-20 bg-background'>
+    <section id='team' className='py-24 bg-background'>
       <div className='container mx-auto px-4'>
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -90,10 +109,11 @@ const TeamSection = () => {
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
           className='text-center mb-16'>
-          <h2 className='text-4xl md:text-5xl font-bold text-foreground mb-4'>
+          <span className='section-badge mb-4'>Our People</span>
+          <h2 className='section-title mb-4'>
             Meet Our <span className='text-transparent bg-gradient-fresh bg-clip-text'>Team</span>
           </h2>
-          <p className='text-xl text-muted-foreground max-w-2xl mx-auto'>
+          <p className='text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto'>
             Our dedicated team of professionals works tirelessly to bring you the freshest
             vegetables and exceptional service every day.
           </p>
@@ -104,55 +124,61 @@ const TeamSection = () => {
           initial='hidden'
           whileInView='visible'
           viewport={{ once: true }}
-          className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
-          {teamMembers.map((member) => (
-            <motion.div
-              key={member.id}
-              variants={itemVariants}
-              whileHover={{ y: -10, scale: 1.02 }}
-              transition={{ duration: 0.3 }}>
-              <Card className='overflow-hidden bg-card border-border/50 hover:shadow-fresh transition-all duration-300'>
-                <div className='relative overflow-hidden'>
-                  <motion.img
-                    whileHover={{ scale: 1.1 }}
-                    transition={{ duration: 0.5 }}
-                    src={member.image}
-                    alt={member.name}
-                    className='w-full h-64 object-cover'
-                  />
-                  <div
-                    className={`absolute top-4 right-4 bg-${member.color} text-white px-3 py-1 rounded-full text-sm font-medium`}>
-                    Team
-                  </div>
-                </div>
-
-                <CardContent className='p-6'>
-                  <div className='text-center mb-4'>
-                    <h3 className='text-xl font-bold text-foreground mb-1'>{member.name}</h3>
-                    <p className={`text-${member.color} font-semibold mb-2`}>{member.role}</p>
-                    <p className='text-muted-foreground text-sm'>{member.description}</p>
+          className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8'>
+          {teamMembers.map((member) => {
+            const colors = colorStyles[member.color];
+            return (
+              <motion.div
+                key={member.id}
+                variants={itemVariants}
+                whileHover={{ y: -6 }}
+                transition={{ duration: 0.3 }}>
+                <Card className='group overflow-hidden rounded-2xl bg-card border-border/60 shadow-card hover:shadow-fresh hover:border-primary/30 transition-all duration-300'>
+                  <div className='relative overflow-hidden'>
+                    <img
+                      src={member.image}
+                      alt={member.name}
+                      loading='lazy'
+                      className='w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105'
+                    />
+                    <div
+                      className={`absolute top-3 right-3 ${colors.badge} text-white px-3 py-1 rounded-full text-xs font-semibold tracking-wide`}>
+                      Team
+                    </div>
                   </div>
 
-                  <div className='flex items-center justify-center space-x-4 pt-4 border-t border-border/50'>
-                    <motion.a
-                      whileHover={{ scale: 1.1 }}
-                      whileTap={{ scale: 0.95 }}
-                      href={`mailto:${member.email}`}
-                      className={`p-2 rounded-full bg-${member.color}/10 hover:bg-${member.color}/20 transition-colors duration-300`}>
-                      <Mail className={`h-4 w-4 text-${member.color}`} />
-                    </motion.a>
-                    <motion.a
-                      whileHover={{ scale: 1.1 }}
-                      whileTap={{ scale: 0.95 }}
-                      href={`tel:${member.phone}`}
-                      className={`p-2 rounded-full bg-${member.color}/10 hover:bg-${member.color}/20 transition-colors duration-300`}>
-                      <Phone className={`h-4 w-4 text-${member.color}`} />
-                    </motion.a>
-                  </div>
-                </CardContent>
-              </Card>
-            </motion.div>
-          ))}
+                  <CardContent className='p-6'>
+                    <div className='text-center mb-4'>
+                      <h3 className='font-display text-lg font-bold text-foreground mb-1'>
+                        {member.name}
+                      </h3>
+                      <p className={`${colors.text} text-sm font-semibold mb-2`}>{member.role}</p>
+                      <p className='text-muted-foreground text-sm'>{member.description}</p>
+                    </div>
+
+                    <div className='flex items-center justify-center gap-3 pt-4 border-t border-border/60'>
+                      <motion.a
+                        whileHover={{ scale: 1.1 }}
+                        whileTap={{ scale: 0.95 }}
+                        href={`mailto:${member.email}`}
+                        aria-label={`Email ${member.name}`}
+                        className={`p-2.5 rounded-full ${colors.iconBg} transition-colors duration-300`}>
+                        <Mail className={`h-4 w-4 ${colors.text}`} />
+                      </motion.a>
+                      <motion.a
+                        whileHover={{ scale: 1.1 }}
+                        whileTap={{ scale: 0.95 }}
+                        href={`tel:${member.phone}`}
+                        aria-label={`Call ${member.name}`}
+                        className={`p-2.5 rounded-full ${colors.iconBg} transition-colors duration-300`}>
+                        <Phone className={`h-4 w-4 ${colors.text}`} />
+                      </motion.a>
+                    </div>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            );
+          })}
         </motion.div>
       </div>
     </section>

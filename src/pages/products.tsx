@@ -1,70 +1,20 @@
 import { motion } from 'framer-motion';
-import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { ShoppingCart, Star, Search, X } from 'lucide-react';
-import { useState, useEffect, useRef, useMemo } from 'react';
+import { Search, X, ArrowLeft, Leaf } from 'lucide-react';
+import { useState, useEffect, useMemo } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowLeft } from 'lucide-react';
-import { createProductInquiryMessage, openWhatsApp } from '@/lib/whatsapp';
 import WhatsAppButton from '@/components/WhatsAppButton';
+import ProductCard from '@/components/ProductCard';
+import LazyImage from '@/components/LazyImage';
 import { allProducts } from '@/assets/data/all-products';
 import SEO from '@/components/SEO';
 
-// Lazy loading image component
-export const LazyImage = ({
-  src,
-  alt,
-  className,
-}: {
-  src: string;
-  alt: string;
-  className: string;
-}) => {
-  const [isLoaded, setIsLoaded] = useState(false);
-  const [isInView, setIsInView] = useState(false);
-  const imgRef = useRef<HTMLImageElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsInView(true);
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.1 }
-    );
-
-    if (imgRef.current) {
-      observer.observe(imgRef.current);
-    }
-
-    return () => observer.disconnect();
-  }, []);
-
-  return (
-    <div ref={imgRef} className={className}>
-      {isInView && (
-        <img
-          src={src}
-          alt={alt}
-          className={`w-full h-full object-cover transition-opacity duration-300 ${
-            isLoaded ? 'opacity-100' : 'opacity-0'
-          }`}
-          onLoad={() => setIsLoaded(true)}
-        />
-      )}
-      {!isLoaded && isInView && (
-        <div className='w-full h-full bg-muted/50 animate-pulse flex items-center justify-center'>
-          <div className='text-muted-foreground text-sm'>Loading...</div>
-        </div>
-      )}
-    </div>
-  );
-};
+// Re-exported for backwards compatibility with existing imports
+export { LazyImage };
 
 const Products = () => {
   const [searchTerm, setSearchTerm] = useState('');
+  const [activeCategory, setActiveCategory] = useState('all');
 
   // Ensure scroll to top on component mount
   useEffect(() => {
@@ -81,30 +31,31 @@ const Products = () => {
     },
   };
 
-  const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: { opacity: 1, y: 0 },
-  };
+  const categories = useMemo(
+    () => ['all', ...Array.from(new Set(allProducts.map((product) => product.category)))],
+    []
+  );
 
-  // Filter products based on search term
+  // Filter products based on search term and category
   const filteredProducts = useMemo(() => {
-    if (!searchTerm.trim()) {
-      return allProducts;
+    let products = allProducts;
+
+    if (activeCategory !== 'all') {
+      products = products.filter((product) => product.category === activeCategory);
     }
 
-    const searchLower = searchTerm.toLowerCase();
-    return allProducts.filter(
-      (product) =>
-        product.name.toLowerCase().includes(searchLower) ||
-        product.category.toLowerCase().includes(searchLower) ||
-        product.description.toLowerCase().includes(searchLower)
-    );
-  }, [searchTerm]);
+    if (searchTerm.trim()) {
+      const searchLower = searchTerm.toLowerCase();
+      products = products.filter(
+        (product) =>
+          product.name.toLowerCase().includes(searchLower) ||
+          product.category.toLowerCase().includes(searchLower) ||
+          product.description.toLowerCase().includes(searchLower)
+      );
+    }
 
-  const handleOrderNow = (productName: string) => {
-    const message = createProductInquiryMessage(productName);
-    openWhatsApp({ message });
-  };
+    return products;
+  }, [searchTerm, activeCategory]);
 
   const clearSearch = () => {
     setSearchTerm('');
@@ -147,63 +98,83 @@ const Products = () => {
         schema={productsPageSchema}
       />
       {/* Header */}
-      <header className='sticky top-0 z-50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b border-border'>
+      <header className='sticky top-0 z-50 bg-background/80 backdrop-blur-xl border-b border-border/60 shadow-sm'>
         <div className='container mx-auto px-4 py-4'>
           <div className='flex items-center justify-between mb-4'>
             <Link
               to='/'
-              className='flex items-center space-x-2 text-foreground hover:text-vegetable-green transition-colors'>
-              <ArrowLeft className='h-5 w-5' />
-              <span className='text-lg font-semibold'>Back to Home</span>
+              className='group flex items-center gap-2 text-foreground hover:text-primary transition-colors'>
+              <ArrowLeft className='h-5 w-5 transition-transform group-hover:-translate-x-1' />
+              <span className='text-base sm:text-lg font-semibold'>Back to Home</span>
             </Link>
-            <h1 className='text-2xl font-bold text-transparent bg-gradient-fresh bg-clip-text'>
-              All Products
-            </h1>
+            <div className='flex items-center gap-2'>
+              <div className='p-1.5 bg-gradient-fresh rounded-lg'>
+                <Leaf className='h-4 w-4 text-white' />
+              </div>
+              <h1 className='font-display text-xl sm:text-2xl font-bold text-transparent bg-gradient-fresh bg-clip-text'>
+                All Products
+              </h1>
+            </div>
           </div>
 
           {/* Search Bar */}
           <div className='relative max-w-md mx-auto'>
             <div className='relative'>
-              <Search className='absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground' />
+              <Search className='absolute left-4 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground' />
               <input
                 type='text'
                 placeholder='Search products, categories, or descriptions...'
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className='w-full pl-10 pr-10 py-2 border border-border rounded-lg bg-background focus:outline-none focus:ring-2 focus:ring-vegetable-green focus:border-vegetable-green transition-colors'
+                className='w-full pl-11 pr-11 py-2.5 rounded-full border border-border bg-muted/50 text-sm focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary focus:bg-background transition-all'
               />
               {searchTerm && (
                 <button
                   onClick={clearSearch}
-                  className='absolute right-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground hover:text-foreground transition-colors'>
+                  aria-label='Clear search'
+                  className='absolute right-4 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground transition-colors'>
                   <X className='h-4 w-4' />
                 </button>
               )}
             </div>
-            {searchTerm && (
-              <div className='absolute top-full left-0 right-0 mt-1 text-sm text-muted-foreground text-center'>
-                {filteredProducts.length} product{filteredProducts.length !== 1 ? 's' : ''} found
-              </div>
-            )}
+          </div>
+
+          {/* Category filter chips */}
+          <div className='mt-4 flex gap-2 overflow-x-auto pb-1 justify-start sm:justify-center [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden'>
+            {categories.map((category) => (
+              <button
+                key={category}
+                onClick={() => setActiveCategory(category)}
+                className={`shrink-0 rounded-full px-4 py-1.5 text-sm font-semibold capitalize transition-all duration-200 ${
+                  activeCategory === category
+                    ? 'bg-primary text-primary-foreground shadow-fresh'
+                    : 'bg-muted text-muted-foreground hover:bg-primary/10 hover:text-primary'
+                }`}>
+                {category === 'all' ? 'All' : category}
+              </button>
+            ))}
           </div>
         </div>
       </header>
 
       {/* Products Section */}
-      <section className='py-12 bg-muted/30'>
+      <section className='py-12 bg-muted/40'>
         <div className='container mx-auto px-4'>
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             className='text-center mb-12'>
-            <h2 className='text-4xl md:text-5xl font-bold text-foreground mb-4'>
+            <h2 className='section-title mb-4'>
               Our Complete{' '}
               <span className='text-transparent bg-gradient-fresh bg-clip-text'>Collection</span>
             </h2>
-            <p className='text-xl text-muted-foreground max-w-2xl mx-auto'>
+            <p className='text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto'>
               Browse through our extensive selection of fresh vegetables, fruits, and herbs. All
               sourced daily for maximum freshness.
+            </p>
+            <p className='mt-3 text-sm font-medium text-muted-foreground'>
+              Showing {filteredProducts.length} of {allProducts.length} products
             </p>
           </motion.div>
 
@@ -211,73 +182,33 @@ const Products = () => {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              className='text-center py-12'>
+              className='text-center py-16'>
               <div className='text-6xl mb-4'>🔍</div>
-              <h3 className='text-2xl font-bold text-foreground mb-2'>No products found</h3>
-              <p className='text-muted-foreground mb-4'>
+              <h3 className='font-display text-2xl font-bold text-foreground mb-2'>
+                No products found
+              </h3>
+              <p className='text-muted-foreground mb-6'>
                 Try adjusting your search terms or browse all products.
               </p>
               <Button
-                onClick={clearSearch}
+                onClick={() => {
+                  clearSearch();
+                  setActiveCategory('all');
+                }}
                 variant='outline'
-                className='hover:bg-vegetable-green hover:text-white transition-colors'>
-                Clear Search
+                className='rounded-full border-primary/40 text-primary hover:bg-primary hover:text-primary-foreground transition-colors'>
+                Clear Filters
               </Button>
             </motion.div>
           ) : (
             <motion.div
+              key={`${activeCategory}-${searchTerm}`}
               variants={containerVariants}
               initial='hidden'
               animate='visible'
               className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6'>
               {filteredProducts.map((product) => (
-                <motion.div
-                  key={product.id}
-                  variants={itemVariants}
-                  whileHover={{ y: -10, scale: 1.02 }}
-                  transition={{ duration: 0.3 }}>
-                  <Card className='overflow-hidden bg-card border-border/50 hover:shadow-fresh transition-all duration-300'>
-                    <div className='relative overflow-hidden h-48'>
-                      <LazyImage
-                        src={
-                          product.image ||
-                          'https://images.pexels.com/photos/102104/pexels-photo-102104.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
-                        }
-                        alt={product.name}
-                        className='w-full h-full'
-                      />
-                      <div className='absolute top-4 right-4 bg-vegetable-green text-white px-3 py-1 rounded-full text-sm font-medium'>
-                        Fresh
-                      </div>
-                    </div>
-
-                    <CardContent className='p-6'>
-                      <div className='flex items-center justify-between mb-2'>
-                        <h3 className='text-xl font-bold text-foreground'>{product.name}</h3>
-                        <div className='flex items-center space-x-1'>
-                          <Star className='h-4 w-4 fill-vegetable-yellow text-vegetable-yellow' />
-                          <span className='text-sm text-muted-foreground'>{product.rating}</span>
-                        </div>
-                      </div>
-
-                      <p className='text-muted-foreground mb-4'>{product.description}</p>
-
-                      <div className='flex items-center justify-between mb-4'>
-                        <span className='text-xs text-muted-foreground bg-muted px-2 py-1 rounded-full capitalize'>
-                          {product.category}
-                        </span>
-                      </div>
-
-                      <Button
-                        size='sm'
-                        onClick={() => handleOrderNow(product.name)}
-                        className='bg-gradient-fresh hover:shadow-glow transition-all duration-300 w-full'>
-                        <ShoppingCart className='h-4 w-4 mr-1' />
-                        Order Now
-                      </Button>
-                    </CardContent>
-                  </Card>
-                </motion.div>
+                <ProductCard key={product.id} product={product} />
               ))}
             </motion.div>
           )}

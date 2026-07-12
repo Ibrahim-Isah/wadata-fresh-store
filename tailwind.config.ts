@@ -18,6 +18,10 @@ export default {
 			}
 		},
 		extend: {
+			fontFamily: {
+				sans: ['"Plus Jakarta Sans"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+				display: ['"Bricolage Grotesque"', '"Plus Jakarta Sans"', 'ui-sans-serif', 'system-ui', 'sans-serif']
+			},
 			colors: {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
@@ -129,6 +133,11 @@ export default {
 					'50%': {
 						boxShadow: '0 0 40px hsl(var(--primary-glow) / 0.6)'
 					}
+				},
+				'shimmer': {
+					'100%': {
+						transform: 'translateX(100%)'
+					}
 				}
 			},
 			animation: {
@@ -137,7 +146,8 @@ export default {
 				'fade-in': 'fade-in 0.6s ease-out',
 				'scale-in': 'scale-in 0.4s ease-out',
 				'float': 'float 3s ease-in-out infinite',
-				'pulse-glow': 'pulse-glow 2s ease-in-out infinite'
+				'pulse-glow': 'pulse-glow 2s ease-in-out infinite',
+				'shimmer': 'shimmer 1.8s ease-in-out infinite'
 			},
 			backgroundImage: {
 				'gradient-fresh': 'var(--gradient-fresh)',
@@ -147,7 +157,8 @@ export default {
 			boxShadow: {
 				'fresh': 'var(--shadow-fresh)',
 				'warm': 'var(--shadow-warm)',
-				'glow': 'var(--shadow-glow)'
+				'glow': 'var(--shadow-glow)',
+				'card': 'var(--shadow-card)'
 			}
 		}
 	},
