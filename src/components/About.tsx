@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import { Users, Award, Leaf, Heart } from 'lucide-react';
 
 const stats = [
-  { icon: Users, number: '500+', label: 'Happy Customers' },
+  { icon: Users, number: '10000+', label: 'Happy Customers' },
   { icon: Award, number: '5', label: 'Years Experience' },
   { icon: Leaf, number: '100%', label: 'Organic Products' },
   { icon: Heart, number: '99%', label: 'Customer Satisfaction' },
