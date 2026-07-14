@@ -141,7 +141,7 @@ export const allProducts = [
     description: 'Fresh coriander leaves',
     category: 'herbs',
     image:
-      'https://th.bing.com/th/id/R.bef5b82322ff08deafad4a47be5eb922?rik=gV8ptfZn4lR0QQ&pid=ImgRaw&r=0',
+      'https://tse4.mm.bing.net/th/id/OIP.MrzX2-0kbeftLq6JZA_b5wAAAA?r=0&rs=1&pid=ImgDetMain&o=7&rm=3',
   },
   {
     id: 16,
@@ -310,7 +310,7 @@ export const allProducts = [
   },
   {
     id: 34,
-    name: 'Mint Scent Leaf',
+    name: 'Mint Leaf',
     price: '$2.49/bunch',
     rating: 4.7,
     description: 'Aromatic mint leaves',

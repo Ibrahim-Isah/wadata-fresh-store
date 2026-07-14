@@ -14,7 +14,7 @@ const SEO = ({
   title = 'Fresh Vegetables Abuja | Wadata Fresh Store - Premium Organic Produce Nigeria',
   description = 'Premium fresh vegetables delivered in Abuja, Nigeria. 100% organic produce from local farms. Order tomatoes, lettuce, carrots, peppers & more. Fast delivery across FCT.',
   keywords = 'fresh vegetables Abuja, organic vegetables Nigeria, vegetables delivery Abuja, fresh produce FCT, tomatoes Abuja, lettuce Nigeria, carrots delivery, peppers Abuja, organic farming Nigeria, Wadata fresh store',
-  image = '/hero-vegetables.jpg',
+  image = 'https://wadata-fresh-store.vercel.app/og-image.jpg',
   url = 'https://wadata-fresh-store.vercel.app/',
   type = 'website',
   schema,
