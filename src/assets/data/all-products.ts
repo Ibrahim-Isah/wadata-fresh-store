@@ -36,7 +36,7 @@ export const allProducts = [
     rating: 4.6,
     description: 'Large juicy beef tomatoes',
     category: 'fruits',
-    image: 'https://www.gardeningknowhow.com/wp-content/uploads/2020/11/beefsteak-tomato.jpg',
+    image: 'https://tse1.mm.bing.net/th/id/OIP.IYaWhK1iXw__vGli1VzCbQHaFj?r=0&rs=1&pid=ImgDetMain&o=7&rm=3',
   },
   {
     id: 5,

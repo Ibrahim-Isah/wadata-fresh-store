@@ -46,8 +46,8 @@ const CertificationSection = () => {
     },
     {
       icon: MapPin,
-      title: 'Nigerian Based',
-      description: 'Located in Mararaba, Nasarawa',
+      title: 'Nigerian Based with Delivery Nation Wide',
+      description: 'Located in Abuja, FCT, Nigeria',
       color: 'vegetable-orange',
     },
   ] as const;
