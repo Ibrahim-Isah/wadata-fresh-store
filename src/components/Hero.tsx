@@ -19,7 +19,7 @@ const Hero = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentImageIndex((prevIndex) =>
-        prevIndex === heroImages.length - 1 ? 0 : prevIndex + 1
+        prevIndex === heroImages.length - 1 ? 0 : prevIndex + 1,
       );
     }, 4000); // Change image every 4 seconds
 
@@ -117,7 +117,7 @@ const Hero = () => {
                 ))}
               </div>
               <div className='text-sm text-muted-foreground'>
-                <span className='font-bold text-foreground'>500+</span> Happy Customers
+                <span className='font-bold text-foreground'>10000+</span> Happy Customers
               </div>
             </motion.div>
           </motion.div>
