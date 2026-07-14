@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { Card, CardContent } from '@/components/ui/card';
-import { Phone } from 'lucide-react';
+import { Phone, Mail } from 'lucide-react';
 
 // Tailwind can't compile dynamically-built class names, so map colors to full class strings
 const colorStyles = {
@@ -27,6 +27,7 @@ const teamMembers = [
     name: 'Alh. Mohammad Wadata',
     role: 'CEO',
     image: '/wadata1.jpeg',
+    email: 'Wadaataa@gmail.com',
     description: 'Leading our team with 20+ years of retail experience',
     phone: '08032892443',
     color: 'vegetable-green',
@@ -35,6 +36,7 @@ const teamMembers = [
     id: 2,
     name: 'Khalifa Wadata',
     role: 'Managing Director',
+    email: 'Wadaataa@gmail.com',
     image: '/wadata2.jpeg',
     description: 'Expert in selecting the freshest vegetables daily',
     phone: '08149556915',
@@ -82,7 +84,7 @@ const TeamSection = () => {
           initial='hidden'
           whileInView='visible'
           viewport={{ once: true }}
-          className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8'>
+          className='grid grid-cols-1 md:grid-cols-2  gap-6 lg:gap-8'>
           {teamMembers.map((member) => {
             const colors = colorStyles[member.color];
             return (
@@ -115,14 +117,14 @@ const TeamSection = () => {
                     </div>
 
                     <div className='flex items-center justify-center gap-3 pt-4 border-t border-border/60'>
-                      {/* <motion.a
+                      <motion.a
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.95 }}
                         href={`mailto:${member?.email}`}
                         aria-label={`Email ${member.name}`}
                         className={`p-2.5 rounded-full ${colors.iconBg} transition-colors duration-300`}>
                         <Mail className={`h-4 w-4 ${colors.text}`} />
-                      </motion.a> */}
+                      </motion.a>
                       <motion.a
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.95 }}
