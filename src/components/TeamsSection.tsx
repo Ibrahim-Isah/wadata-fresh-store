@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { Card, CardContent } from '@/components/ui/card';
-import { Mail, Phone } from 'lucide-react';
+import { Phone } from 'lucide-react';
 
 // Tailwind can't compile dynamically-built class names, so map colors to full class strings
 const colorStyles = {
@@ -24,63 +24,21 @@ const colorStyles = {
 const teamMembers = [
   {
     id: 1,
-    name: 'Sarah Johnson',
-    role: 'Store Manager',
-    image: '/team-1.jpg',
-    description: 'Leading our team with 8+ years of retail experience',
-    email: 'sarah@freshveggies.com',
-    phone: '+1 (555) 123-4567',
+    name: 'Alh. Mohammad Wadata',
+    role: 'CEO',
+    image: '/wadata1.jpeg',
+    description: 'Leading our team with 20+ years of retail experience',
+    phone: '08032892443',
     color: 'vegetable-green',
   },
   {
     id: 2,
-    name: 'Mike Rodriguez',
-    role: 'Head of Produce',
-    image: '/team-1.jpg',
+    name: 'Khalifa Wadata',
+    role: 'Managing Director',
+    image: '/wadata2.jpeg',
     description: 'Expert in selecting the freshest vegetables daily',
-    email: 'mike@freshveggies.com',
-    phone: '+1 (555) 123-4568',
+    phone: '08149556915',
     color: 'vegetable-orange',
-  },
-  {
-    id: 3,
-    name: 'Emily Chen',
-    role: 'Customer Service Lead',
-    image: '/team-1.jpg',
-    description: 'Ensuring every customer has an amazing experience',
-    email: 'emily@freshveggies.com',
-    phone: '+1 (555) 123-4569',
-    color: 'vegetable-yellow',
-  },
-  {
-    id: 4,
-    name: 'David Thompson',
-    role: 'Delivery Coordinator',
-    image: '/team-1.jpg',
-    description: 'Managing our fast and reliable delivery service',
-    email: 'david@freshveggies.com',
-    phone: '+1 (555) 123-4570',
-    color: 'vegetable-green',
-  },
-  {
-    id: 5,
-    name: 'Lisa Park',
-    role: 'Quality Assurance',
-    image: '/team-1.jpg',
-    description: 'Ensuring only the highest quality produce reaches you',
-    email: 'lisa@freshveggies.com',
-    phone: '+1 (555) 123-4571',
-    color: 'vegetable-orange',
-  },
-  {
-    id: 6,
-    name: 'James Wilson',
-    role: 'Inventory Manager',
-    image: '/team-1.jpg',
-    description: 'Keeping our shelves stocked with fresh produce',
-    email: 'james@freshveggies.com',
-    phone: '+1 (555) 123-4572',
-    color: 'vegetable-yellow',
   },
 ] as const;
 
@@ -129,15 +87,15 @@ const TeamSection = () => {
             const colors = colorStyles[member.color];
             return (
               <motion.div
-                key={member.id}
+                key={member?.id}
                 variants={itemVariants}
                 whileHover={{ y: -6 }}
                 transition={{ duration: 0.3 }}>
                 <Card className='group overflow-hidden rounded-2xl bg-card border-border/60 shadow-card hover:shadow-fresh hover:border-primary/30 transition-all duration-300'>
                   <div className='relative overflow-hidden'>
                     <img
-                      src={member.image}
-                      alt={member.name}
+                      src={member?.image}
+                      alt={member?.name}
                       loading='lazy'
                       className='w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105'
                     />
@@ -150,26 +108,26 @@ const TeamSection = () => {
                   <CardContent className='p-6'>
                     <div className='text-center mb-4'>
                       <h3 className='font-display text-lg font-bold text-foreground mb-1'>
-                        {member.name}
+                        {member?.name}
                       </h3>
-                      <p className={`${colors.text} text-sm font-semibold mb-2`}>{member.role}</p>
-                      <p className='text-muted-foreground text-sm'>{member.description}</p>
+                      <p className={`${colors.text} text-sm font-semibold mb-2`}>{member?.role}</p>
+                      <p className='text-muted-foreground text-sm'>{member?.description}</p>
                     </div>
 
                     <div className='flex items-center justify-center gap-3 pt-4 border-t border-border/60'>
-                      <motion.a
+                      {/* <motion.a
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.95 }}
-                        href={`mailto:${member.email}`}
+                        href={`mailto:${member?.email}`}
                         aria-label={`Email ${member.name}`}
                         className={`p-2.5 rounded-full ${colors.iconBg} transition-colors duration-300`}>
                         <Mail className={`h-4 w-4 ${colors.text}`} />
-                      </motion.a>
+                      </motion.a> */}
                       <motion.a
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.95 }}
-                        href={`tel:${member.phone}`}
-                        aria-label={`Call ${member.name}`}
+                        href={`tel:${member?.phone}`}
+                        aria-label={`Call ${member?.name}`}
                         className={`p-2.5 rounded-full ${colors.iconBg} transition-colors duration-300`}>
                         <Phone className={`h-4 w-4 ${colors.text}`} />
                       </motion.a>
